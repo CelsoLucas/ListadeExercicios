@@ -9,6 +9,7 @@ while True:
     print("2 - Subtrair")
     print("3 - Multiplicar")
     print("4 - Dividir")
+    
     while True:
         try:
             opcao = int(input("Digite a opção que deseja: "))
@@ -17,6 +18,12 @@ while True:
             continue
         else:
             break
+    if opcao == 0:
+        print("Saindo...")
+        break
+    elif opcao != 1 and opcao != 2 and opcao != 3 and opcao != 4:
+        print("Opção invalida!")
+        continue
     
     while True:
         try:
@@ -36,6 +43,6 @@ while True:
                 continue
             break
     print("=-="*15)
-    
+
     resultado = calculadora.Calculadora.calcular(opcao, n1, n2)
     

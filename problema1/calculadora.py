@@ -17,7 +17,5 @@ class Calculadora:
         elif opcao == 4:
             resultado = divisao.Divisao.dividir(n1, n2)
             print(f"{n1} / {n2} = {resultado}")
-        else:
-            print("Opção Invalida!")
-        
+
         return resultado
