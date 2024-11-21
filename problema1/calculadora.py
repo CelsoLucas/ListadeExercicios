@@ -3,7 +3,7 @@ import subtracao
 import multiplicacao
 import divisao
 
-class Calculadora:
+class Calculadora():
     def calcular(opcao, n1, n2):
         if opcao == 1:
             resultado = soma.Soma.somar(n1, n2)
