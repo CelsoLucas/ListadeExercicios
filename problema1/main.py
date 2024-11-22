@@ -44,5 +44,6 @@ while True:
             break
     print("=-="*15)
 
-    resultado = calculadora.Calculadora.calcular(opcao, n1, n2)
+    calc = calculadora.Calculadora(opcao, n1, n2)
+    resultado = calc.calcular()
     

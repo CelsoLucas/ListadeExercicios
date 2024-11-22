@@ -4,18 +4,27 @@ import multiplicacao
 import divisao
 
 class Calculadora():
-    def calcular(opcao, n1, n2):
-        if opcao == 1:
-            resultado = soma.Soma.somar(n1, n2)
-            print(f"{n1} + {n2} = {resultado}")
-        elif opcao == 2:
-            resultado = subtracao.Subtracao.subtrair(n1, n2)
-            print(f"{n1} - {n2} = {resultado}")
-        elif opcao == 3:
-            resultado = multiplicacao.Multiplicacao.multiplicar(n1, n2)
-            print(f"{n1} X {n2} = {resultado}")
-        elif opcao == 4:
-            resultado = divisao.Divisao.dividir(n1, n2)
-            print(f"{n1} / {n2} = {resultado}")
+    def __init__(self, opcao, n1, n2):
+        self.opcao = opcao
+        self.n1 = n1
+        self.n2 = n2
+        
+    def calcular(self):
+        if self.opcao == 1:
+            operador = soma.Soma(self.n1, self.n2)
+            resultado = operador.somar()
+            print(f"{self.n1} + {self.n2} = {resultado}")
+        elif self.opcao == 2:
+            operador = subtracao.Subtracao(self.n1, self.n2)
+            resultado = operador.subtrair()
+            print(f"{self.n1} - {self.n2} = {resultado}")
+        elif self.opcao == 3:
+            operador = multiplicacao.Multiplicacao(self.n1, self.n2)
+            resultado = operador.multiplicar()
+            print(f"{self.n1} X {self.n2} = {resultado}")
+        elif self.opcao == 4:
+            operador = divisao.Divisao(self.n1, self.n2)
+            resultado = operador.dividir()
+            print(f"{self.n1} / {self.n2} = {resultado}")
 
         return resultado
