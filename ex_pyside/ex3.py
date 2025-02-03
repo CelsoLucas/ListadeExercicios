@@ -16,6 +16,7 @@ class MainWindow(QWidget):
 
         nome_label = QLabel("Meu Nome")
         nome_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        nome_botao = QPushButton("Top")
 
         imagem_label = QLabel()
         pixmap = QPixmap("ex_pyside/audirs6.jpg")  
@@ -24,7 +25,7 @@ class MainWindow(QWidget):
 
         layout.addWidget(nome_label)
         layout.addWidget(imagem_label)
-
+        layout.addWidget(nome_botao)
         self.setLayout(layout)
 
 if __name__ == "__main__":
