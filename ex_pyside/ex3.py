@@ -7,11 +7,9 @@ class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
 
-        # Configurações da janela
         self.setWindowTitle("Janela com Nome e Imagem")
         self.setGeometry(100, 100, 400, 300)
 
-        # Layout vertical
         layout = QVBoxLayout()
 
         nome_label = QLabel("Meu Nome")
