@@ -22,7 +22,7 @@ class AnimalWindow(QMainWindow):
         layout.addWidget(self.cat_button)
 
         self.image_label = QLabel()
-        self.image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)  # Centraliza a imagem
+        self.image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.image_label)
 
     def show_dog(self):
