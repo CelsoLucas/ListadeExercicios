@@ -14,23 +14,25 @@ class telaLogin(QMainWindow):
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         layout = QVBoxLayout(central_widget)
-
+        layout.setAlignment(Qt.AlignCenter)
 
         self.txt_login = QLabel("LOGIN")
         self.txt_login.setStyleSheet("font-size: 24px; font-weight: bold; text-align: center;")
         self.txt_login.setAlignment(Qt.AlignCenter)
 
         self.txt_user = QLabel("Usuario")
-        self.txt_user.setStyleSheet("font-size: 16px; font-weight: bold; text-align: center;")
+        self.txt_user.setStyleSheet("font-size: 16px; font-weight: bold; text-align: center; min-width: 60; max-width:150;")
         self.txt_user.setAlignment(Qt.AlignCenter)
 
         self.input_user = QLineEdit()
+        self.input_user.setStyleSheet("min-width: 60; max-width:150;")
 
         self.txt_senha = QLabel("Senha")
-        self.txt_senha.setStyleSheet("font-size: 16px; font-weight: bold; text-align: center;")
+        self.txt_senha.setStyleSheet("font-size: 16px; font-weight: bold; text-align: center;min-width: 60; max-width:150;")
         self.txt_senha.setAlignment(Qt.AlignCenter)
 
         self.input_senha = QLineEdit()
+        self.input_senha.setStyleSheet("min-width: 60; max-width:150;")
         self.input_senha.setEchoMode(QLineEdit.Password)
 
         self.botao_login = QPushButton("Login")
