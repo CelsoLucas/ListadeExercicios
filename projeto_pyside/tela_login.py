@@ -1,8 +1,7 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget, QLineEdit, QDialog, QMessageBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget, QLineEdit
 from PySide6.QtCore import Qt
-from time import sleep
-from tela_cadastro_user import CadastroUsuario
+from checker import checker
 
 class telaLogin(QMainWindow):
     def __init__(self):
@@ -10,11 +9,8 @@ class telaLogin(QMainWindow):
         self.init_ui()
 
     def init_ui(self):
-        self.setWindowTitle("Cachorro ou Gato")
+        self.setWindowTitle("LOGIN")
         self.setGeometry(100, 100, 400, 300)
-        
-        self.user = "admin"
-        self.senha  = "admin"
 
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
@@ -40,8 +36,10 @@ class telaLogin(QMainWindow):
         self.input_senha.setStyleSheet("min-width: 60; max-width:150;")
         self.input_senha.setEchoMode(QLineEdit.Password)
 
+        func = checker(self, self.input_user.text(), self.input_senha.text())
+
         self.botao_login = QPushButton("Login")
-        self.botao_login.clicked.connect(self.checker)
+        self.botao_login.clicked.connect(func.checker())
 
         layout.addWidget(self.txt_login)
         layout.addWidget(self.txt_user)
@@ -49,23 +47,11 @@ class telaLogin(QMainWindow):
         layout.addWidget(self.txt_senha)
         layout.addWidget(self.input_senha)
         layout.addWidget(self.botao_login)
-    
-    def checker(self):
-        usuario = self.input_user.text()
-        senha = self.input_senha.text()
-
-        if usuario != self.user:
-            QMessageBox.warning(self, "Erro", "Usuário inválido!")
-        elif senha != self.senha:
-            QMessageBox.warning(self, "Erro", "Senha inválida!")
-        else:
-            QMessageBox.information(self, "Sucesso", f"Bem-vindo, {usuario}!")
-            self.abrir_tela_cadastro()
-    
-    def abrir_tela_cadastro(self):
-        self.tela_cadastro = CadastroUsuario()  
-        self.tela_cadastro.show()
-        self.close()
+        
+    # def abrir_tela_cadastro(self):
+    #     self.tela_cadastro = CadastroUsuario()  
+    #     self.tela_cadastro.show()
+    #     self.close()
             
 
 if __name__ == "__main__":
