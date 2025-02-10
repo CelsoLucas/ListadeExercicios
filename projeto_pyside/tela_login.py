@@ -1,10 +1,15 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget, QLineEdit, QDialog, QMessageBox
 from PySide6.QtCore import Qt
+from time import sleep
+from tela_cadastro_user import CadastroUsuario
 
 class telaLogin(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.init_ui()
+
+    def init_ui(self):
         self.setWindowTitle("Cachorro ou Gato")
         self.setGeometry(100, 100, 400, 300)
         
@@ -46,20 +51,22 @@ class telaLogin(QMainWindow):
         layout.addWidget(self.botao_login)
     
     def checker(self):
-        print("foi")
-        mensagem = QMessageBox()
         usuario = self.input_user.text()
         senha = self.input_senha.text()
+
         if usuario != self.user:
-            mensagem.setText("Usuario Invalido!")
-            mensagem.exec()
+            QMessageBox.warning(self, "Erro", "Usuário inválido!")
+        elif senha != self.senha:
+            QMessageBox.warning(self, "Erro", "Senha inválida!")
         else:
-            if senha != self.senha:
-                mensagem.setText("Senha Invalida!")
-                mensagem.exec()
-            else:
-                mensagem.setText(f"Bem-Vindo {usuario}")
-                mensagem.exec()
+            QMessageBox.information(self, "Sucesso", f"Bem-vindo, {usuario}!")
+            self.abrir_tela_cadastro()
+    
+    def abrir_tela_cadastro(self):
+        self.tela_cadastro = CadastroUsuario()  
+        self.tela_cadastro.show()
+        self.close()
+            
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
