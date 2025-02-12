@@ -36,9 +36,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.layout = QFrame(self.centralwidget)
         self.layout.setObjectName(u"layout")
-        self.layout.setMinimumSize(QSize(275, 300))
+        self.layout.setMinimumSize(QSize(550, 600))
         self.layout.setStyleSheet(u"background: #FFFFFF;\n"
-"box-shadow: 6px 6px 9px rgba(0, 0, 0, 0.44);\n"
 "border-radius: 19px;\n"
 "")
         self.layout.setFrameShape(QFrame.Shape.StyledPanel)
@@ -47,7 +46,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.txt_login = QLabel(self.layout)
         self.txt_login.setObjectName(u"txt_login")
-        self.txt_login.setStyleSheet(u"font-size: 24px;\n"
+        self.txt_login.setStyleSheet(u"font-size: 40px;\n"
 "font-weight: bold;")
         self.txt_login.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -61,7 +60,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.input_user = QLineEdit(self.layout_user)
         self.input_user.setObjectName(u"input_user")
-        self.input_user.setStyleSheet(u"border: none;\n"
+        self.input_user.setStyleSheet(u"font-size: 20px;\n"
+"border: none;\n"
 "border-bottom: 1px solid black;\n"
 "background: transparent;")
 
@@ -78,7 +78,8 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.input_senha = QLineEdit(self.layout_senha)
         self.input_senha.setObjectName(u"input_senha")
-        self.input_senha.setStyleSheet(u"border: none;\n"
+        self.input_senha.setStyleSheet(u"font-size: 20px;\n"
+"border: none;\n"
 "border-bottom: 1px solid black;\n"
 "background: transparent;")
         self.input_senha.setEchoMode(QLineEdit.EchoMode.Password)
@@ -90,17 +91,23 @@ class Ui_MainWindow(object):
 
         self.btn_login = QPushButton(self.layout)
         self.btn_login.setObjectName(u"btn_login")
+        self.btn_login.setMinimumSize(QSize(153, 53))
+        self.btn_login.setMaximumSize(QSize(153, 53))
+        self.btn_login.setCursor(QCursor(Qt.CursorShape.ArrowCursor))
         self.btn_login.setStyleSheet(u"width: 100px;\n"
 "height: 30px;\n"
-"\n"
+"font-size: 20px;\n"
 "background: #D9D9D9;\n"
-"box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.35);\n"
 "border-radius: 11px;\n"
 "font-weight: medium;\n"
 "")
 
         self.verticalLayout_3.addWidget(self.btn_login, 0, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
 
+        self.btn_login.raise_()
+        self.txt_login.raise_()
+        self.layout_user.raise_()
+        self.layout_senha.raise_()
 
         self.verticalLayout_4.addWidget(self.layout, 0, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
 

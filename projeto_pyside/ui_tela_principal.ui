@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1642</width>
     <height>600</height>
    </rect>
   </property>
@@ -20,6 +20,9 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QFrame" name="layout">
+      <property name="styleSheet">
+       <string notr="true">background-color: #DBDBDB;</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::Shape::StyledPanel</enum>
       </property>
@@ -34,6 +37,9 @@
            <width>16777215</width>
            <height>80</height>
           </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="frameShape">
           <enum>QFrame::Shape::StyledPanel</enum>
@@ -193,7 +199,7 @@ border-radius: 10px;
                <property name="maximumSize">
                 <size>
                  <width>325</width>
-                 <height>60</height>
+                 <height>75</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -213,7 +219,7 @@ font-size: 22px;
                <property name="maximumSize">
                 <size>
                  <width>315</width>
-                 <height>60</height>
+                 <height>75</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -232,7 +238,7 @@ font-size: 22px;
                <property name="maximumSize">
                 <size>
                  <width>315</width>
-                 <height>60</height>
+                 <height>75</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -251,7 +257,7 @@ font-size: 22px;
                <property name="maximumSize">
                 <size>
                  <width>315</width>
-                 <height>60</height>
+                 <height>75</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -270,7 +276,7 @@ font-size: 22px;
                <property name="maximumSize">
                 <size>
                  <width>315</width>
-                 <height>60</height>
+                 <height>75</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -289,7 +295,7 @@ font-size: 22px;
                <property name="maximumSize">
                 <size>
                  <width>315</width>
-                 <height>60</height>
+                 <height>75</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -408,8 +414,11 @@ background-color: rgb(219, 219, 219);</string>
                 </item>
                 <item>
                  <widget class="QLabel" name="txt_vendas_semana_bd">
+                  <property name="styleSheet">
+                   <string notr="true">font-size:  18px;</string>
+                  </property>
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string>R$1.400.000,00</string>
                   </property>
                  </widget>
                 </item>
@@ -457,8 +466,11 @@ border-radius: 20px;</string>
                 </item>
                 <item row="1" column="0">
                  <widget class="QLabel" name="txt_produtos_baixo_estoque_bd">
+                  <property name="styleSheet">
+                   <string notr="true">font-size:  18px;</string>
+                  </property>
                   <property name="text">
-                   <string>txt</string>
+                   <string>Nenhum</string>
                   </property>
                  </widget>
                 </item>
@@ -554,8 +566,11 @@ border-radius: 20px;</string>
                 </item>
                 <item>
                  <widget class="QLabel" name="txt_vendas_dia_bd">
+                  <property name="styleSheet">
+                   <string notr="true">font-size:  18px;</string>
+                  </property>
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string>R$200.000,00</string>
                   </property>
                  </widget>
                 </item>
@@ -603,8 +618,11 @@ border-radius: 20px;</string>
                 </item>
                 <item>
                  <widget class="QLabel" name="txt_vendas_mes_bd">
+                  <property name="styleSheet">
+                   <string notr="true">font-size:  18px;</string>
+                  </property>
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string>R$6.000.000,00</string>
                   </property>
                  </widget>
                 </item>
