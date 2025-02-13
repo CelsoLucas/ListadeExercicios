@@ -257,7 +257,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit_contratacao"/>
+           <widget class="QDateEdit" name="input_data_contratacao"/>
           </item>
          </layout>
         </widget>
@@ -311,7 +311,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_periodo">
+           <widget class="QComboBox" name="input_periodo">
             <item>
              <property name="text">
               <string>Matutino</string>
@@ -376,7 +376,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBox">
+           <widget class="QDoubleSpinBox" name="input_salario">
             <property name="decimals">
              <number>2</number>
             </property>
@@ -430,7 +430,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QTextEdit" name="txtedit_obs"/>
+           <widget class="QTextEdit" name="input_obs"/>
           </item>
          </layout>
         </widget>

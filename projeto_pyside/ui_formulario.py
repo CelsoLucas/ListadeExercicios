@@ -193,10 +193,10 @@ class Ui_tela_formulario(object):
 
         self.verticalLayout_11.addWidget(self.txt_data_contratacao)
 
-        self.dateEdit_contratacao = QDateEdit(self.layout_data_contratacao)
-        self.dateEdit_contratacao.setObjectName(u"dateEdit_contratacao")
+        self.input_data_contratacao = QDateEdit(self.layout_data_contratacao)
+        self.input_data_contratacao.setObjectName(u"input_data_contratacao")
 
-        self.verticalLayout_11.addWidget(self.dateEdit_contratacao)
+        self.verticalLayout_11.addWidget(self.input_data_contratacao)
 
 
         self.gridLayout_2.addWidget(self.layout_data_contratacao, 5, 0, 1, 1)
@@ -233,14 +233,14 @@ class Ui_tela_formulario(object):
 
         self.verticalLayout_10.addWidget(self.txt_periodo)
 
-        self.comboBox_periodo = QComboBox(self.layout_periodo)
-        self.comboBox_periodo.addItem("")
-        self.comboBox_periodo.addItem("")
-        self.comboBox_periodo.addItem("")
-        self.comboBox_periodo.addItem("")
-        self.comboBox_periodo.setObjectName(u"comboBox_periodo")
+        self.input_periodo = QComboBox(self.layout_periodo)
+        self.input_periodo.addItem("")
+        self.input_periodo.addItem("")
+        self.input_periodo.addItem("")
+        self.input_periodo.addItem("")
+        self.input_periodo.setObjectName(u"input_periodo")
 
-        self.verticalLayout_10.addWidget(self.comboBox_periodo)
+        self.verticalLayout_10.addWidget(self.input_periodo)
 
 
         self.gridLayout_2.addWidget(self.layout_periodo, 5, 1, 1, 1)
@@ -275,13 +275,13 @@ class Ui_tela_formulario(object):
 
         self.verticalLayout_9.addWidget(self.txt_salario)
 
-        self.doubleSpinBox = QDoubleSpinBox(self.layout_salario)
-        self.doubleSpinBox.setObjectName(u"doubleSpinBox")
-        self.doubleSpinBox.setDecimals(2)
-        self.doubleSpinBox.setMaximum(1000000.000000000000000)
-        self.doubleSpinBox.setValue(0.000000000000000)
+        self.input_salario = QDoubleSpinBox(self.layout_salario)
+        self.input_salario.setObjectName(u"input_salario")
+        self.input_salario.setDecimals(2)
+        self.input_salario.setMaximum(1000000.000000000000000)
+        self.input_salario.setValue(0.000000000000000)
 
-        self.verticalLayout_9.addWidget(self.doubleSpinBox)
+        self.verticalLayout_9.addWidget(self.input_salario)
 
 
         self.gridLayout_2.addWidget(self.layout_salario, 2, 1, 1, 1)
@@ -316,10 +316,10 @@ class Ui_tela_formulario(object):
 
         self.verticalLayout_8.addWidget(self.txt_obs)
 
-        self.txtedit_obs = QTextEdit(self.layout_obs)
-        self.txtedit_obs.setObjectName(u"txtedit_obs")
+        self.input_obs = QTextEdit(self.layout_obs)
+        self.input_obs.setObjectName(u"input_obs")
 
-        self.verticalLayout_8.addWidget(self.txtedit_obs)
+        self.verticalLayout_8.addWidget(self.input_obs)
 
 
         self.gridLayout_2.addWidget(self.layout_obs, 9, 0, 1, 1)
@@ -355,10 +355,10 @@ class Ui_tela_formulario(object):
         self.txt_data_contratacao.setText(QCoreApplication.translate("tela_formulario", u"Data da Contrata\u00e7\u00e3o", None))
         self.txt_senha.setText(QCoreApplication.translate("tela_formulario", u"Senha", None))
         self.txt_periodo.setText(QCoreApplication.translate("tela_formulario", u"Periodo", None))
-        self.comboBox_periodo.setItemText(0, QCoreApplication.translate("tela_formulario", u"Matutino", None))
-        self.comboBox_periodo.setItemText(1, QCoreApplication.translate("tela_formulario", u"Vespertino", None))
-        self.comboBox_periodo.setItemText(2, QCoreApplication.translate("tela_formulario", u"Noturno", None))
-        self.comboBox_periodo.setItemText(3, QCoreApplication.translate("tela_formulario", u"Matutino e Vespertino", None))
+        self.input_periodo.setItemText(0, QCoreApplication.translate("tela_formulario", u"Matutino", None))
+        self.input_periodo.setItemText(1, QCoreApplication.translate("tela_formulario", u"Vespertino", None))
+        self.input_periodo.setItemText(2, QCoreApplication.translate("tela_formulario", u"Noturno", None))
+        self.input_periodo.setItemText(3, QCoreApplication.translate("tela_formulario", u"Matutino e Vespertino", None))
 
         self.txt_data_nasc.setText(QCoreApplication.translate("tela_formulario", u"Data de Nascimento", None))
         self.txt_salario.setText(QCoreApplication.translate("tela_formulario", u"Salario", None))
