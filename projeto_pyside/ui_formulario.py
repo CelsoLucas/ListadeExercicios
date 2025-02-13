@@ -86,15 +86,15 @@ class Ui_tela_formulario(object):
         self.layout_cargo_opc.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout = QHBoxLayout(self.layout_cargo_opc)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.radio_botao2 = QRadioButton(self.layout_cargo_opc)
-        self.radio_botao2.setObjectName(u"radio_botao2")
+        self.input_cargo_adm = QRadioButton(self.layout_cargo_opc)
+        self.input_cargo_adm.setObjectName(u"input_cargo_adm")
 
-        self.horizontalLayout.addWidget(self.radio_botao2)
+        self.horizontalLayout.addWidget(self.input_cargo_adm)
 
-        self.radio_botao1 = QRadioButton(self.layout_cargo_opc)
-        self.radio_botao1.setObjectName(u"radio_botao1")
+        self.input_cargo_func = QRadioButton(self.layout_cargo_opc)
+        self.input_cargo_func.setObjectName(u"input_cargo_func")
 
-        self.horizontalLayout.addWidget(self.radio_botao1)
+        self.horizontalLayout.addWidget(self.input_cargo_func)
 
 
         self.verticalLayout_5.addWidget(self.layout_cargo_opc)
@@ -139,20 +139,23 @@ class Ui_tela_formulario(object):
         self.layout_sexo_opc.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.layout_sexo_opc)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.checkBox_opc_1 = QCheckBox(self.layout_sexo_opc)
-        self.checkBox_opc_1.setObjectName(u"checkBox_opc_1")
+        self.sexo_opc_m = QCheckBox(self.layout_sexo_opc)
+        self.sexo_opc_m.setObjectName(u"sexo_opc_m")
+        self.sexo_opc_m.setAutoExclusive(True)
 
-        self.horizontalLayout_2.addWidget(self.checkBox_opc_1)
+        self.horizontalLayout_2.addWidget(self.sexo_opc_m)
 
-        self.checkBox_opc_4 = QCheckBox(self.layout_sexo_opc)
-        self.checkBox_opc_4.setObjectName(u"checkBox_opc_4")
+        self.sexo_opc_f = QCheckBox(self.layout_sexo_opc)
+        self.sexo_opc_f.setObjectName(u"sexo_opc_f")
+        self.sexo_opc_f.setAutoExclusive(True)
 
-        self.horizontalLayout_2.addWidget(self.checkBox_opc_4)
+        self.horizontalLayout_2.addWidget(self.sexo_opc_f)
 
-        self.checkBox_opc_3 = QCheckBox(self.layout_sexo_opc)
-        self.checkBox_opc_3.setObjectName(u"checkBox_opc_3")
+        self.sexo_opc_o = QCheckBox(self.layout_sexo_opc)
+        self.sexo_opc_o.setObjectName(u"sexo_opc_o")
+        self.sexo_opc_o.setAutoExclusive(True)
 
-        self.horizontalLayout_2.addWidget(self.checkBox_opc_3)
+        self.horizontalLayout_2.addWidget(self.sexo_opc_o)
 
 
         self.verticalLayout_6.addWidget(self.layout_sexo_opc)
@@ -294,10 +297,10 @@ class Ui_tela_formulario(object):
 
         self.verticalLayout_7.addWidget(self.txt_idade)
 
-        self.spinBox_idade = QSpinBox(self.layout_idade)
-        self.spinBox_idade.setObjectName(u"spinBox_idade")
+        self.input_idade = QSpinBox(self.layout_idade)
+        self.input_idade.setObjectName(u"input_idade")
 
-        self.verticalLayout_7.addWidget(self.spinBox_idade)
+        self.verticalLayout_7.addWidget(self.input_idade)
 
 
         self.gridLayout_2.addWidget(self.layout_idade, 2, 0, 1, 1)
@@ -338,15 +341,15 @@ class Ui_tela_formulario(object):
         self.txt_email.setText(QCoreApplication.translate("tela_formulario", u"Email", None))
         self.input_email.setPlaceholderText("")
         self.txt_cargo.setText(QCoreApplication.translate("tela_formulario", u"Cargo", None))
-        self.radio_botao2.setText(QCoreApplication.translate("tela_formulario", u"ADM", None))
-        self.radio_botao1.setText(QCoreApplication.translate("tela_formulario", u"FUNCIONARIO", None))
+        self.input_cargo_adm.setText(QCoreApplication.translate("tela_formulario", u"ADM", None))
+        self.input_cargo_func.setText(QCoreApplication.translate("tela_formulario", u"FUNCIONARIO", None))
         self.txt_cpf.setText(QCoreApplication.translate("tela_formulario", u"CPF", None))
         self.input_cpf.setInputMask(QCoreApplication.translate("tela_formulario", u"000.000.000-00", None))
         self.input_cpf.setText(QCoreApplication.translate("tela_formulario", u"..-", None))
         self.txt_sexo.setText(QCoreApplication.translate("tela_formulario", u"Sexo", None))
-        self.checkBox_opc_1.setText(QCoreApplication.translate("tela_formulario", u"Masculino", None))
-        self.checkBox_opc_4.setText(QCoreApplication.translate("tela_formulario", u"Feminino", None))
-        self.checkBox_opc_3.setText(QCoreApplication.translate("tela_formulario", u"Outro", None))
+        self.sexo_opc_m.setText(QCoreApplication.translate("tela_formulario", u"Masculino", None))
+        self.sexo_opc_f.setText(QCoreApplication.translate("tela_formulario", u"Feminino", None))
+        self.sexo_opc_o.setText(QCoreApplication.translate("tela_formulario", u"Outro", None))
         self.txt_nome.setText(QCoreApplication.translate("tela_formulario", u"Nome de Usuario", None))
         self.input_nome.setPlaceholderText("")
         self.txt_data_contratacao.setText(QCoreApplication.translate("tela_formulario", u"Data da Contrata\u00e7\u00e3o", None))

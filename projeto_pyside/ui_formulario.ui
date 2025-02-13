@@ -102,14 +102,14 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout">
              <item>
-              <widget class="QRadioButton" name="radio_botao2">
+              <widget class="QRadioButton" name="input_cargo_adm">
                <property name="text">
                 <string>ADM</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QRadioButton" name="radio_botao1">
+              <widget class="QRadioButton" name="input_cargo_func">
                <property name="text">
                 <string>FUNCIONARIO</string>
                </property>
@@ -179,23 +179,32 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <widget class="QCheckBox" name="checkBox_opc_1">
+              <widget class="QCheckBox" name="sexo_opc_m">
                <property name="text">
                 <string>Masculino</string>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="checkBox_opc_4">
-               <property name="text">
-                <string>Feminino</string>
+               <property name="autoExclusive">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_opc_3">
+              <widget class="QCheckBox" name="sexo_opc_f">
+               <property name="text">
+                <string>Feminino</string>
+               </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="sexo_opc_o">
                <property name="text">
                 <string>Outro</string>
+               </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -399,7 +408,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="spinBox_idade"/>
+           <widget class="QSpinBox" name="input_idade"/>
           </item>
          </layout>
         </widget>

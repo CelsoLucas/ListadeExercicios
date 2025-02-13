@@ -38,8 +38,19 @@ class MainWindow(QMainWindow):
         senha = self.tela_formulario.input_senha.text()
         cpf = self.tela_formulario.input_cpf.text()
         email = self.tela_formulario.input_email.text()
-        idade = self.tela_formulario.spinBox_idade.text()
-
+        idade = self.tela_formulario.input_idade.text()
+        if self.tela_formulario.input_cargo_adm.isChecked():
+            opc_cargo = 1
+        elif self.tela_formulario.input_cargo_func.isChecked():
+            opc_cargo = 2
+        
+        if self.tela_formulario.sexo_opc_m.isChecked():
+            opc_sexo = 1
+        elif self.tela_formulario.sexo_opc_f.isChecked():
+            opc_sexo = 2
+        elif self.tela_formulario.sexo_opc_o.isChecked():
+            opc_sexo = 3
+        
 
         cursor = self.conexao.cursor()
         comando = f"select usuario, senha from usuarios where usuario = '{self.tela_login.input_user.text()}'"
