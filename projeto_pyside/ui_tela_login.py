@@ -18,12 +18,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QLineEdit,
     QMainWindow, QPushButton, QSizePolicy, QVBoxLayout,
     QWidget)
+import img_login_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(819, 600)
+        MainWindow.resize(942, 1051)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -44,6 +45,22 @@ class Ui_MainWindow(object):
         self.layout.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.layout)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.layout_img_login = QFrame(self.layout)
+        self.layout_img_login.setObjectName(u"layout_img_login")
+        self.layout_img_login.setFrameShape(QFrame.Shape.StyledPanel)
+        self.layout_img_login.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.layout_img_login)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.icon_login = QLabel(self.layout_img_login)
+        self.icon_login.setObjectName(u"icon_login")
+        self.icon_login.setMaximumSize(QSize(150, 150))
+        self.icon_login.setScaledContents(True)
+
+        self.verticalLayout_5.addWidget(self.icon_login, 0, Qt.AlignmentFlag.AlignHCenter)
+
+
+        self.verticalLayout_3.addWidget(self.layout_img_login)
+
         self.txt_login = QLabel(self.layout)
         self.txt_login.setObjectName(u"txt_login")
         self.txt_login.setStyleSheet(u"font-size: 40px;\n"
@@ -108,6 +125,7 @@ class Ui_MainWindow(object):
         self.txt_login.raise_()
         self.layout_user.raise_()
         self.layout_senha.raise_()
+        self.layout_img_login.raise_()
 
         self.verticalLayout_4.addWidget(self.layout, 0, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
 
@@ -120,6 +138,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.icon_login.setText("")
         self.txt_login.setText(QCoreApplication.translate("MainWindow", u"LOGIN", None))
         self.input_user.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Usuario", None))
         self.input_senha.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Senha", None))

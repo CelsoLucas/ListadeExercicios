@@ -435,6 +435,42 @@
          </layout>
         </widget>
        </item>
+       <item row="8" column="1">
+        <widget class="QFrame" name="layout_adc_foto">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <item>
+           <widget class="QLabel" name="txt_adc_foto">
+            <property name="text">
+             <string>Adicionar Foto</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_procurar_arquivo">
+            <property name="text">
+             <string>Porcurar Arquivo</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="input_arquivo"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="layout_img">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>

@@ -324,6 +324,35 @@ class Ui_tela_formulario(object):
 
         self.gridLayout_2.addWidget(self.layout_obs, 9, 0, 1, 1)
 
+        self.layout_adc_foto = QFrame(self.layout)
+        self.layout_adc_foto.setObjectName(u"layout_adc_foto")
+        self.layout_adc_foto.setFrameShape(QFrame.Shape.StyledPanel)
+        self.layout_adc_foto.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_13 = QVBoxLayout(self.layout_adc_foto)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.txt_adc_foto = QLabel(self.layout_adc_foto)
+        self.txt_adc_foto.setObjectName(u"txt_adc_foto")
+
+        self.verticalLayout_13.addWidget(self.txt_adc_foto)
+
+        self.btn_procurar_arquivo = QPushButton(self.layout_adc_foto)
+        self.btn_procurar_arquivo.setObjectName(u"btn_procurar_arquivo")
+
+        self.verticalLayout_13.addWidget(self.btn_procurar_arquivo)
+
+        self.input_arquivo = QLineEdit(self.layout_adc_foto)
+        self.input_arquivo.setObjectName(u"input_arquivo")
+
+        self.verticalLayout_13.addWidget(self.input_arquivo)
+
+        self.layout_img = QLabel(self.layout_adc_foto)
+        self.layout_img.setObjectName(u"layout_img")
+
+        self.verticalLayout_13.addWidget(self.layout_img)
+
+
+        self.gridLayout_2.addWidget(self.layout_adc_foto, 8, 1, 1, 1)
+
 
         self.gridLayout.addWidget(self.layout, 1, 0, 1, 1)
 
@@ -364,5 +393,8 @@ class Ui_tela_formulario(object):
         self.txt_salario.setText(QCoreApplication.translate("tela_formulario", u"Salario", None))
         self.txt_idade.setText(QCoreApplication.translate("tela_formulario", u"Idade", None))
         self.txt_obs.setText(QCoreApplication.translate("tela_formulario", u"Observa\u00e7\u00e3o", None))
+        self.txt_adc_foto.setText(QCoreApplication.translate("tela_formulario", u"Adicionar Foto", None))
+        self.btn_procurar_arquivo.setText(QCoreApplication.translate("tela_formulario", u"Porcurar Arquivo", None))
+        self.layout_img.setText("")
     # retranslateUi
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>819</width>
-    <height>600</height>
+    <width>942</width>
+    <height>1051</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -44,6 +44,34 @@ border-radius: 19px;
        <enum>QFrame::Shadow::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QFrame" name="layout_img_login">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item alignment="Qt::AlignmentFlag::AlignHCenter">
+           <widget class="QLabel" name="icon_login">
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item>
         <widget class="QLabel" name="txt_login">
          <property name="styleSheet">
@@ -147,11 +175,14 @@ font-weight: medium;
       <zorder>txt_login</zorder>
       <zorder>layout_user</zorder>
       <zorder>layout_senha</zorder>
+      <zorder>layout_img_login</zorder>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="img_login.qrc"/>
+ </resources>
  <connections/>
 </ui>
