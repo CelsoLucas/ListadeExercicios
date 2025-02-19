@@ -22,25 +22,38 @@ class MainWindow(QMainWindow):
 
     def check_login(self):
         cursor = self.conexao.cursor()
-        comando = f"select usuario, senha, foto_perfil from usuarios where usuario = '{self.tela_login.input_user.text()}'"
-        cursor.execute(comando)
-        resultado = cursor.fetchall()
-        self.conexao.commit()
+        
+        comando = f"SELECT senha, foto_perfil FROM usuarios WHERE usuario = %s"
+        cursor.execute(comando, (self.tela_login.input_user.text(),))
+        resultado = cursor.fetchone()
         
         if not resultado:
             QMessageBox.warning(self, "Erro", "Usuário inválido!")
+            return
+
+        senha_armazenada, foto_perfil = resultado
+
+        comando_senha = "SELECT SHA2(%s, 256)"
+        cursor.execute(comando_senha, (self.tela_login.input_senha.text(),))
+        senha_digitada_hash = cursor.fetchone()[0]
+
+        if senha_digitada_hash != senha_armazenada:
+            QMessageBox.warning(self, "Erro", "Senha inválida!")
         else:
-            if self.tela_login.input_senha.text() != resultado[0][1]:
-                QMessageBox.warning(self, "Erro", "Senha inválida!")
-            else:
-                pixmap = QPixmap(f'{resultado[0][2]}')
+            if foto_perfil:
+                pixmap = QPixmap(foto_perfil)
                 self.tela_login.icon_login.setPixmap(pixmap)
                 self.tela_login.icon_login.setScaledContents(True)
-                QMessageBox.information(self, "Sucesso", f"Bem-vindo, {self.tela_login.input_user.text()}!")
-                self.tela_formulario = Ui_tela_formulario()
-                self.tela_formulario.setupUi(self)
-                self.tela_formulario.btn_procurar_arquivo.clicked.connect(self.open_image)
-                self.tela_formulario.btn_enviar_formulario.clicked.connect(self.enviar_form)
+
+            QMessageBox.information(self, "Sucesso", f"Bem-vindo, {self.tela_login.input_user.text()}!")
+
+            self.tela_formulario = Ui_tela_formulario()
+            self.tela_formulario.setupUi(self)
+            self.tela_formulario.btn_enviar_formulario.clicked.connect(self.enviar_form)
+            self.tela_formulario.btn_procurar_arquivo.clicked.connect(self.open_image)
+        
+        cursor.close()
+
 
 
     def open_image(self):
@@ -67,13 +80,27 @@ class MainWindow(QMainWindow):
             pixmap = QPixmap(self.new_file_path)
             self.tela_login.icon_login.setPixmap(pixmap)
             self.tela_formulario.layout_img.setScaledContents(True)
+            self.tela_formulario.layout_img.setPixmap(pixmap)
 
-    def enviar_form(self, img):
+    def enviar_form(self):
+        cursor = self.conexao.cursor()
         nome_usu = self.tela_formulario.input_nome.text()
+        comando = f"SELECT usuario FROM usuarios WHERE usuario = %s"
+        cursor.execute(comando, (self.tela_login, nome_usu))
+        resultado = cursor.fetchone()
+        
+        if resultado[0][0] == nome_usu:
+            QMessageBox.warning(self, "Erro", "Usuário ja sendo usado!")
+
         senha = self.tela_formulario.input_senha.text()
         cpf = self.tela_formulario.input_cpf.text()
         email = self.tela_formulario.input_email.text()
+        if not (email.endswith("@gmail.com") or email.endswith("@hotmail.com") or email.endswith("@icloud.com")):            
+            QMessageBox.warning(self, "Erro", "Email inválido!")
         idade = self.tela_formulario.input_idade.text()
+        if idade <= 17:
+            QMessageBox.warning(self.tela_formulario, "Erro", "Senha inválida!")
+
         foto = self.new_file_path
 
         if self.tela_formulario.input_cargo_adm.isChecked():
@@ -103,7 +130,8 @@ class MainWindow(QMainWindow):
             periodo = 4
 
         obs = self.tela_formulario.input_obs.toPlainText()
-
+        if obs in '☺☻♥♦♣♠•◘○':
+            QMessageBox.warning(self, "Erro", "Obs inválida!")
         img_caminho = foto
 
         cursor = self.conexao.cursor()
@@ -111,7 +139,7 @@ class MainWindow(QMainWindow):
         comando = """
             INSERT INTO usuarios 
             (usuario, senha, cpf, email, idade, cargo, data_contratacao, sexo, data_nasc, salario, periodo, obs, foto_perfil) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, SHA2(%s, 256), %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
 
         dados = (

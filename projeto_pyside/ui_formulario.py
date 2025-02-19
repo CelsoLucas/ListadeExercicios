@@ -25,7 +25,7 @@ class Ui_tela_formulario(object):
     def setupUi(self, tela_formulario):
         if not tela_formulario.objectName():
             tela_formulario.setObjectName(u"tela_formulario")
-        tela_formulario.resize(800, 660)
+        tela_formulario.resize(800, 706)
         self.centralwidget = QWidget(tela_formulario)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
@@ -339,11 +339,6 @@ class Ui_tela_formulario(object):
         self.btn_procurar_arquivo.setObjectName(u"btn_procurar_arquivo")
 
         self.verticalLayout_13.addWidget(self.btn_procurar_arquivo)
-
-        self.input_arquivo = QLineEdit(self.layout_adc_foto)
-        self.input_arquivo.setObjectName(u"input_arquivo")
-
-        self.verticalLayout_13.addWidget(self.input_arquivo)
 
         self.layout_img = QLabel(self.layout_adc_foto)
         self.layout_img.setObjectName(u"layout_img")
