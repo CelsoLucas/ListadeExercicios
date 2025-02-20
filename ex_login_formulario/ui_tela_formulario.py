@@ -1,5 +1,7 @@
 import customtkinter as ctk
+from tkinter import filedialog
 from PIL import Image
+from cmd_tela_formulario import *
 
 class telaFormulario(ctk.CTk):
     def __init__(self):
@@ -24,7 +26,7 @@ class telaFormulario(ctk.CTk):
         self.frame1.columnconfigure(0, weight=1)
         self.frame1.columnconfigure(1, weight=1)
 
-        self.input_usuario = ctk.CTkEntry(self.frame1,
+        self.input_nome = ctk.CTkEntry(self.frame1,
                                         placeholder_text="Nome",
                                         fg_color="transparent",
                                         border_width=0,
@@ -32,7 +34,7 @@ class telaFormulario(ctk.CTk):
                                         width=300,
                                         text_color="#909090",
                                         justify="left")
-        self.input_usuario.grid(row=0, column=0, pady=40)
+        self.input_nome.grid(row=0, column=0, pady=40)
 
         self.linha = ctk.CTkFrame(self.frame1, height=2, fg_color="#909090", width=300)
         self.linha.grid(row=0, column=0, pady=(30, 0))
@@ -84,12 +86,12 @@ class telaFormulario(ctk.CTk):
                                     anchor="w") 
         self.txt_obs.grid(row=5, column=0, pady=(40, 0))
 
-
         self.input_obs = ctk.CTkTextbox(self.frame1,
                                         fg_color="transparent",
                                         border_width=1,
                                         font=("poppins", 20),
                                         width=300,
+                                        height=100,
                                         text_color="#909090")
         self.input_obs.grid(row=6, column=0, pady=(0, 0))
         
@@ -140,13 +142,66 @@ class telaFormulario(ctk.CTk):
         self.btn_radio_func = ctk.CTkRadioButton(self.frame_radio2, text="Funcionario", value=2, variable=self.radio2_var)
         self.btn_radio_func.grid(row=0, column=0, sticky="ne")
 
-        self.btn_procurar_arquivo_foto = ctk.CTkButton(self.frame1, text="Procurar Arquivo")
+        # Botão para procurar arquivo de imagem
+        self.btn_procurar_arquivo_foto = ctk.CTkButton(self.frame1, text="Procurar Arquivo", command=self.procurar_imagem)
         self.btn_procurar_arquivo_foto.grid(column=1, row=5, pady=(40, 0))
 
-        # self.local_img = ctk.CTkImage(Image.open(""), size=(15, 15))
+        # Label para exibir a imagem
+        self.label_img = ctk.CTkLabel(self.frame1, text="", image=None)
+        self.label_img.grid(row=6, column=1)
 
-        # self.label_img = ctk.CTkLabel(self.frame1, text="", image=self.local_image)
-        # self.label_img.grid(row=6, column=1)
+        self.btn_enviar_formulario = ctk.CTkButton(self.frame1,
+                                                   text="Enviar Formulario",
+                                                   command=self.enviar_formulario)
+        self.btn_enviar_formulario.grid(columnspan=2, pady=(40, 20), sticky="s")
+
+    def procurar_imagem(self):
+        # Abre o diálogo para o usuário selecionar um arquivo de imagem
+        caminho_imagem = filedialog.askopenfilename(filetypes=[("Imagem", "*.png;*.jpg;*.jpeg;*.gif;*.bmp")])
+        
+        if caminho_imagem:
+            # Carrega e exibe a imagem
+            imagem = Image.open(caminho_imagem)
+            local_img = ctk.CTkImage(imagem, size=(100, 100))  # Define o tamanho da imagem exibida
+            self.label_img.configure(image=local_img)  # Atualiza a imagem na label
+            self.label_img.image = local_img  # Necessário para evitar que a imagem desapareça
+
+            # Salvar o caminho da imagem
+            self.img_local = caminho_imagem  # Salva o caminho da imagem para usar no envio
+
+    def enviar_formulario(self):
+        verificacao = verificarFormulario(self.input_email.get(), self.input_cpf.get())
+        
+        if not verificacao.is_valid:
+            return  # Interrompe a execução se o formulário não for válido
+
+        nome = self.input_nome.get()
+        email = self.input_email.get()
+        senha = self.input_senha.get()
+        cpf = self.input_cpf.get()
+        obs = self.input_obs.get("1.0", "end").strip()
+
+        sexo = self.radio1_var.get()
+        if sexo == 1:
+            sexo_texto = "Masculino"
+        elif sexo == 2:
+            sexo_texto = "Feminino"
+        elif sexo == 3:
+            sexo_texto = "Outro"
+        else:
+            sexo_texto = "Não informado"
+
+        cargo = self.radio2_var.get()
+        if cargo == 1:
+            cargo_texto = "ADM"
+        elif cargo == 2:
+            cargo_texto = "Funcionário"
+        else:
+            cargo_texto = "Não informado"
+
+        # Agora passa o caminho da imagem para o banco de dados
+        img_local = getattr(self, 'img_local', None)
+        adcUser(nome, email, senha, cpf, obs, sexo, cargo, img_local)
 
 if __name__ == "__main__":
     app = telaFormulario()
