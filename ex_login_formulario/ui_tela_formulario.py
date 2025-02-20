@@ -1,7 +1,5 @@
 import customtkinter as ctk
-from tkinter import filedialog
-from PIL import Image
-from cmd_tela_formulario import *
+from cmd_tela_formulario import Usuario
 
 class telaFormulario(ctk.CTk):
     def __init__(self):
@@ -59,7 +57,8 @@ class telaFormulario(ctk.CTk):
                                         font=("poppins", 20),
                                         width=300,
                                         text_color="#909090",
-                                        justify="left")
+                                        justify="left",
+                                        show="*")
         self.input_senha.grid(row=2, column=0, pady=(40, 20))
 
         self.linha = ctk.CTkFrame(self.frame1, height=2, fg_color="#909090", width=300)
@@ -109,15 +108,18 @@ class telaFormulario(ctk.CTk):
         self.frame_radio1.rowconfigure(0, weight=1)
         self.frame_radio1.grid_propagate(False)
 
+        def radio1():
+            print(self.radio1_var.get())
+        
         self.radio1_var = ctk.IntVar(value=0)
 
-        self.btn_radio_masc = ctk.CTkRadioButton(self.frame_radio1, text="Masculino", text_color="#909090", value=1, variable=self.radio1_var)
+        self.btn_radio_masc = ctk.CTkRadioButton(self.frame_radio1, text="Masculino", text_color="#909090", value=1, variable=self.radio1_var, command=radio1)
         self.btn_radio_masc.grid(row=0, column=0, sticky="nw")
 
-        self.btn_radio_femn = ctk.CTkRadioButton(self.frame_radio1, text="Feminino", value=2, variable=self.radio1_var)
+        self.btn_radio_femn = ctk.CTkRadioButton(self.frame_radio1, text="Feminino", value=2, variable=self.radio1_var, command=radio1)
         self.btn_radio_femn.grid(row=0, column=0, sticky="n")
 
-        self.btn_radio_outro = ctk.CTkRadioButton(self.frame_radio1, text="Outro", value=3, variable=self.radio1_var)
+        self.btn_radio_outro = ctk.CTkRadioButton(self.frame_radio1, text="Outro", value=3, variable=self.radio1_var, command=radio1)
         self.btn_radio_outro.grid(row=0, column=0, sticky="ne")
 
         self.txt_cargo = ctk.CTkLabel(self.frame1,
@@ -134,24 +136,38 @@ class telaFormulario(ctk.CTk):
         self.frame_radio2.rowconfigure(0, weight=1)
         self.frame_radio2.grid_propagate(False)
 
+
+        def radio2():
+            print(self.radio2_var.get())
         self.radio2_var = ctk.IntVar(value=0)
 
-        self.btn_radio_adm = ctk.CTkRadioButton(self.frame_radio2, text="ADM", text_color="#909090", value=1, variable=self.radio2_var)
+        self.btn_radio_adm = ctk.CTkRadioButton(self.frame_radio2, text="ADM", text_color="#909090", value=1, variable=self.radio2_var,command=radio2)
         self.btn_radio_adm.grid(row=0, column=0, sticky="nw")
 
-        self.btn_radio_func = ctk.CTkRadioButton(self.frame_radio2, text="Funcionario", value=2, variable=self.radio2_var)
+        self.btn_radio_func = ctk.CTkRadioButton(self.frame_radio2, text="Funcionario", text_color="#909090", value=2, variable=self.radio2_var, command=radio2)
         self.btn_radio_func.grid(row=0, column=0, sticky="ne")
 
-        # Botão para procurar arquivo de imagem
-        self.btn_procurar_arquivo_foto = ctk.CTkButton(self.frame1, text="Procurar Arquivo")
-        self.btn_procurar_arquivo_foto.grid(column=1, row=5, pady=(40, 0))
-
-        # Label para exibir a imagem
         self.label_img = ctk.CTkLabel(self.frame1, text="", image=None)
         self.label_img.grid(row=6, column=1)
 
+        sexo = self.radio1_var.get()
+        cargo = self.radio2_var.get()
+        
+        self.usuario = Usuario(self.input_nome.get(),
+                               self.input_email.get(),
+                               self.input_senha.get(),
+                               self.input_cpf.get(),
+                               self.input_obs.get("1.0", "end"),
+                               sexo,
+                               cargo)
+
+        self.btn_procurar_arquivo_foto = ctk.CTkButton(self.frame1, text="Procurar Arquivo",
+                                                       command=lambda: self.usuario.selecionar_imagem(self.label_img))
+        self.btn_procurar_arquivo_foto.grid(column=1, row=5, pady=(40, 0))
+
         self.btn_enviar_formulario = ctk.CTkButton(self.frame1,
-                                                   text="Enviar Formulario")
+                                                   text="Enviar Formulario",
+                                                   command=self.usuario.enviarFormulario)
         self.btn_enviar_formulario.grid(columnspan=2, pady=(40, 20), sticky="s")
 
 

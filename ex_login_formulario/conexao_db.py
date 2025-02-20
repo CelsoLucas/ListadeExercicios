@@ -6,7 +6,7 @@ class conexaoDB:
             host="localhost",
             user="suporte",
             password="suporte",
-            database="tela_login_formulario"
+            database="ex002"
         )
         self.cursor = self.conexao.cursor()
 
