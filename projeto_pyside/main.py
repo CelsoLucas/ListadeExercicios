@@ -7,13 +7,14 @@ import mysql.connector
 import os
 import shutil
 from PySide6.QtWidgets import QFileDialog
-
+import dns.resolver
+from datetime import datetime
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.conexao = mysql.connector.connect(host="localhost",
-                                               user="celsadas",
-                                               password="33880188",
+                                               user="suporte",
+                                               password="suporte",
                                                database="ex001"
                                                )
         self.tela_login = Ui_MainWindow()
@@ -106,48 +107,62 @@ class MainWindow(QMainWindow):
             return False
 
         return True
-    
+
+    def validar_email(self, email):
+        try:
+            dominio = email.split('@')[1]
+            registros_mx = dns.resolver.resolve(dominio, 'MX')
+            return bool(registros_mx)
+        except:
+            return False
+        
     def enviar_form(self):
         cursor = self.conexao.cursor()
 
-        # Verificar se o nome de usuário já existe
+        if self.tela_formulario.input_nome.text()[0].isdigit():
+            QMessageBox.warning(self, "Erro", "O Nome de Usuário não pode começar com um número!")
+            return
+
         comando = "SELECT nome_usu FROM usuarios WHERE nome_usu = %s"
         cursor.execute(comando, (self.tela_formulario.input_nome.text(),))
         if cursor.fetchone():
-            QMessageBox.warning(self, "Erro", "Usuário já cadastrado!")
+            QMessageBox.warning(self, "Erro", "Nome de usuário já cadastrado!")
             return
 
-        # Verificar se o CPF é válido
         cpf_input = self.tela_formulario.input_cpf.text()
         if not self.valida_cpf(cpf_input):
             QMessageBox.warning(self, "Erro", "Digite um CPF válido!")
             return
 
-        # Verificar se o CPF já existe
         comando = "SELECT cpf FROM usuarios WHERE cpf = %s"
         cursor.execute(comando, (cpf_input,))
         if cursor.fetchone():
             QMessageBox.warning(self, "Erro", "CPF já cadastrado!")
             return
 
-        # Verificar se o e-mail é válido
-        email = self.tela_formulario.input_email.text()
-        if not (email.endswith("@gmail.com") or email.endswith("@hotmail.com") or email.endswith("@icloud.com")):
+        email = self.validar_email(self.tela_formulario.input_email.text())
+        if email == False:
             QMessageBox.warning(self, "Erro", "Email inválido!")
             return
+        else:
+            email = self.tela_formulario.input_email.text()
 
-        # Verificar se o usuário é maior de 16 anos
-        idade = self.tela_formulario.input_idade.text()
-        if int(idade) <= 15:
-            QMessageBox.warning(self, "Erro", "Precisa ser maior de 16 anos!")
+        data_nasc_qdate = self.tela_formulario.input_data_nasc.date()
+
+        data_nasc_qdate = self.tela_formulario.input_data_nasc.date()
+
+        data_nasc = datetime(data_nasc_qdate.year(), data_nasc_qdate.month(), data_nasc_qdate.day())
+
+        idade = (datetime.now() - data_nasc).days // 365  # Divide por 365 para obter a idade em anos
+
+        if idade < 16:
+            QMessageBox.warning(self, "Erro", "Você deve ter no mínimo 16 anos")
             return
 
-        # Verificar se o cargo foi selecionado
         if not (self.tela_formulario.input_cargo_adm.isChecked() or self.tela_formulario.input_cargo_func.isChecked()):
             QMessageBox.warning(self, "Erro", "Selecione um cargo!")
             return
 
-        # Verificar se o sexo foi selecionado
         opc_sexo = None
         if self.tela_formulario.sexo_opc_m.isChecked():
             opc_sexo = 1
@@ -159,36 +174,36 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Erro", "Selecione um sexo válido!")
             return
 
-        # Verificar se o período foi selecionado
         if self.tela_formulario.input_periodo.currentIndex() == -1:
             QMessageBox.warning(self, "Erro", "Selecione um período!")
             return
         periodo = self.tela_formulario.input_periodo.currentIndex() + 1
 
-        # Verificar se a observação contém caracteres inválidos
         obs = self.tela_formulario.input_obs.toPlainText()
         if any(c in '☺☻♥♦♣♠•◘○' for c in obs):
-            QMessageBox.warning(self, "Erro", "Observação inválida!")
+            QMessageBox.warning(self, "Erro", "Observação inválida! Não pode colocar figuras")
             return
 
-        # Recuperar caminho da foto
         foto = self.new_file_path
 
-        # Definir cargo
-        opc_cargo = 1 if self.tela_formulario.input_cargo_adm.isChecked() else 2
-
-        # Recuperar data de contratação e salário
+        if self.tela_formulario.input_cargo_adm.isChecked():
+            opc_cargo = 1
+        elif self.tela_formulario.input_cargo_func.isChecked():
+            opc_cargo = 2
+        else:
+            QMessageBox.warning(self, "Erro", "Selecione um cargo valido!")
+            return
+            
         data_contratacao = self.tela_formulario.input_data_contratacao.date().toString("yyyy-MM-dd")
         salario = self.tela_formulario.input_salario.value()
 
-        # Inserir dados no banco
         comando = """
             INSERT INTO usuarios 
-            (nome_usu, email, senha, cpf, idade, salario, data_contratacao, periodo, cargo, sexo, obs, img_local)
-            VALUES (%s, %s,SHA2(%s, 256), %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            (nome_usu, email, senha, cpf, data_nasc, idade, salario, data_contratacao, periodo, cargo, sexo, obs, img_local)
+            VALUES (%s, %s,SHA2(%s, 256), %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
         dados = (
-            self.tela_formulario.input_nome.text(), email, self.tela_formulario.input_senha.text(), cpf_input, idade, salario, 
+            self.tela_formulario.input_nome.text(), email, self.tela_formulario.input_senha.text(), cpf_input, data_nasc, idade, salario, 
             data_contratacao, periodo, opc_cargo, opc_sexo, obs, foto
         )
 

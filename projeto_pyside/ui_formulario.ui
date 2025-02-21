@@ -6,22 +6,59 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>706</height>
+    <width>1027</width>
+    <height>817</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(211, 211, 211);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">background-color: rgb(239, 255, 252);</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="2" column="0">
      <widget class="QPushButton" name="btn_enviar_formulario">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(244, 244, 244);</string>
+       <string notr="true">QPushButton {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #333;
+    selection-background-color: #007bff;
+    selection-color: white;
+    transition: all 0.3s ease;
+}
+
+QPushButton:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QPushButton:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+QPushButton:pressed {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+QPushButton:disabled {
+    background-color: #f0f0f0;
+    color: #bbb;
+    border-color: #ccc;
+}
+
+</string>
       </property>
       <property name="text">
        <string>Enviar Formulario</string>
@@ -31,7 +68,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="txt__formulario">
       <property name="styleSheet">
-       <string notr="true">font-size: 26px;</string>
+       <string notr="true">font-size: 40px;</string>
       </property>
       <property name="text">
        <string>Formulario</string>
@@ -61,6 +98,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_12">
           <item>
            <widget class="QLabel" name="txt_cpf">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>CPF</string>
             </property>
@@ -68,6 +108,27 @@
           </item>
           <item>
            <widget class="QLineEdit" name="input_cpf">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    selection-background-color: #007bff;
+    selection-color: white;
+}
+
+QLineEdit:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QLineEdit::placeholder {
+    color: #888;
+    font-style: italic;
+}</string>
+            </property>
             <property name="inputMask">
              <string>000.000.000-00</string>
             </property>
@@ -93,13 +154,59 @@
          <layout class="QVBoxLayout" name="verticalLayout_11">
           <item>
            <widget class="QLabel" name="txt_data_contratacao">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Data da Contratação</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="input_data_contratacao"/>
+           <widget class="QDateEdit" name="input_data_contratacao">
+            <property name="styleSheet">
+             <string notr="true">QDateTimeEdit {
+	height: 45px;
+	font-size: 20px;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    selection-background-color: #007bff;
+    selection-color: white;
+}
+
+QDateTimeEdit:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QDateTimeEdit::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+QDateTimeEdit::drop-down {
+    background-color: #007bff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+}
+
+QDateTimeEdit::drop-down:hover {
+    background-color: #0056b3;
+}
+
+QDateTimeEdit::down-arrow:hover {
+    background-color: #0056b3;
+}
+
+QDateTimeEdit::down-arrow:pressed {
+    background-color: #003f7f;
+}
+</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -115,6 +222,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_10">
           <item>
            <widget class="QLabel" name="txt_periodo">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Periodo</string>
             </property>
@@ -122,6 +232,65 @@
           </item>
           <item>
            <widget class="QComboBox" name="input_periodo">
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+    padding: 8px;
+    font-size: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    selection-background-color: #007bff;
+    selection-color: white;
+}
+
+QComboBox:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QComboBox::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+QComboBox::drop-down {
+    background-color: transparent; /* Fundo transparente */
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+}
+
+QComboBox::down-arrow {
+    width: 16px;
+    height: 16px;
+}
+
+QComboBox::down-arrow:hover {
+    background-color: transparent; /* Removendo qualquer fundo ao passar o mouse */
+}
+
+QComboBox::down-arrow:pressed {
+    background-color: transparent; /* Removendo qualquer fundo ao pressionar */
+}
+
+QComboBox QAbstractItemView {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    selection-background-color: #007bff;
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 8px;
+    font-size: 16px;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #007bff;
+    color: white;
+}
+</string>
+            </property>
             <item>
              <property name="text">
               <string>Matutino</string>
@@ -158,6 +327,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
            <widget class="QLabel" name="txt_sexo">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Sexo</string>
             </property>
@@ -165,6 +337,10 @@
           </item>
           <item>
            <widget class="QFrame" name="layout_sexo_opc">
+            <property name="styleSheet">
+             <string notr="true">font-size: 20px;
+</string>
+            </property>
             <property name="frameShape">
              <enum>QFrame::Shape::StyledPanel</enum>
             </property>
@@ -174,6 +350,57 @@
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
               <widget class="QCheckBox" name="sexo_opc_m">
+               <property name="styleSheet">
+                <string notr="true">QCheckBox {
+    font-size: 20px;
+    padding: 8px;
+    color: #333;
+}
+
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #0056b3;
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: #ffffff;
+}
+
+QCheckBox::indicator:unchecked:hover {
+    border-color: #007bff;
+}
+
+QCheckBox:hover {
+    color: #007bff;
+}
+
+QCheckBox:disabled {
+    color: #bbb;
+}
+
+QCheckBox:focus {
+    outline: none;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #003f7f;
+    border-color: #003f7f;
+}
+</string>
+               </property>
                <property name="text">
                 <string>Masculino</string>
                </property>
@@ -184,6 +411,57 @@
              </item>
              <item>
               <widget class="QCheckBox" name="sexo_opc_f">
+               <property name="styleSheet">
+                <string notr="true">QCheckBox {
+    font-size: 20px;
+    padding: 8px;
+    color: #333;
+}
+
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #0056b3;
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: #ffffff;
+}
+
+QCheckBox::indicator:unchecked:hover {
+    border-color: #007bff;
+}
+
+QCheckBox:hover {
+    color: #007bff;
+}
+
+QCheckBox:disabled {
+    color: #bbb;
+}
+
+QCheckBox:focus {
+    outline: none;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #003f7f;
+    border-color: #003f7f;
+}
+</string>
+               </property>
                <property name="text">
                 <string>Feminino</string>
                </property>
@@ -194,6 +472,57 @@
              </item>
              <item>
               <widget class="QCheckBox" name="sexo_opc_o">
+               <property name="styleSheet">
+                <string notr="true">QCheckBox {
+    font-size: 20px;
+    padding: 8px;
+    color: #333;
+}
+
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #0056b3;
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: #ffffff;
+}
+
+QCheckBox::indicator:unchecked:hover {
+    border-color: #007bff;
+}
+
+QCheckBox:hover {
+    color: #007bff;
+}
+
+QCheckBox:disabled {
+    color: #bbb;
+}
+
+QCheckBox:focus {
+    outline: none;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #003f7f;
+    border-color: #003f7f;
+}
+</string>
+               </property>
                <property name="text">
                 <string>Outro</string>
                </property>
@@ -219,13 +548,44 @@
          <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <widget class="QLabel" name="txt_obs">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Observação</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QTextEdit" name="input_obs"/>
+           <widget class="QTextEdit" name="input_obs">
+            <property name="styleSheet">
+             <string notr="true">QTextEdit {
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    selection-background-color: #007bff;
+    selection-color: white;
+}
+
+QTextEdit:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QTextEdit::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+QTextEdit::line {
+    border: none;
+    background: transparent;
+}
+</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -241,6 +601,9 @@
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <widget class="QLabel" name="txt_nome">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Nome de Usuario</string>
             </property>
@@ -248,6 +611,27 @@
           </item>
           <item>
            <widget class="QLineEdit" name="input_nome">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    selection-background-color: #007bff;
+    selection-color: white;
+}
+
+QLineEdit:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QLineEdit::placeholder {
+    color: #888;
+    font-style: italic;
+}</string>
+            </property>
             <property name="placeholderText">
              <string/>
             </property>
@@ -273,6 +657,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="QLabel" name="txt_senha">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Senha</string>
             </property>
@@ -280,6 +667,27 @@
           </item>
           <item>
            <widget class="QLineEdit" name="input_senha">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    selection-background-color: #007bff;
+    selection-color: white;
+}
+
+QLineEdit:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QLineEdit::placeholder {
+    color: #888;
+    font-style: italic;
+}</string>
+            </property>
             <property name="echoMode">
              <enum>QLineEdit::EchoMode::Password</enum>
             </property>
@@ -299,6 +707,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
            <widget class="QLabel" name="txt_salario">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Salario</string>
             </property>
@@ -306,6 +717,31 @@
           </item>
           <item>
            <widget class="QDoubleSpinBox" name="input_salario">
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+	height:45px;
+    padding: 8px;
+    font-size: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    selection-background-color: #007bff;
+    selection-color: white;
+}
+
+QDoubleSpinBox:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QDoubleSpinBox::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+
+</string>
+            </property>
             <property name="decimals">
              <number>2</number>
             </property>
@@ -331,6 +767,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <item>
            <widget class="QLabel" name="txt_cargo">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Cargo</string>
             </property>
@@ -347,6 +786,63 @@
             <layout class="QHBoxLayout" name="horizontalLayout">
              <item>
               <widget class="QRadioButton" name="input_cargo_adm">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QRadioButton {
+    font-size: 20px;
+    padding: 8px;
+    color: #333;
+}
+
+QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;  /* Tornando o indicador completamente redondo */
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+QRadioButton::indicator:checked:hover {
+    background-color: #0056b3;
+}
+
+QRadioButton::indicator:unchecked {
+    background-color: #ffffff;
+}
+
+QRadioButton::indicator:unchecked:hover {
+    border-color: #007bff;
+}
+
+QRadioButton:hover {
+    color: #007bff;
+}
+
+QRadioButton:disabled {
+    color: #bbb;
+}
+
+QRadioButton:focus {
+    outline: none;
+}
+
+QRadioButton::indicator:pressed {
+    background-color: #003f7f;
+    border-color: #003f7f;
+}
+</string>
+               </property>
                <property name="text">
                 <string>ADM</string>
                </property>
@@ -354,6 +850,57 @@
              </item>
              <item>
               <widget class="QRadioButton" name="input_cargo_func">
+               <property name="styleSheet">
+                <string notr="true">QRadioButton {
+    font-size: 20px;
+    padding: 8px;
+    color: #333;
+}
+
+QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;  /* Tornando o indicador completamente redondo */
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+QRadioButton::indicator:checked:hover {
+    background-color: #0056b3;
+}
+
+QRadioButton::indicator:unchecked {
+    background-color: #ffffff;
+}
+
+QRadioButton::indicator:unchecked:hover {
+    border-color: #007bff;
+}
+
+QRadioButton:hover {
+    color: #007bff;
+}
+
+QRadioButton:disabled {
+    color: #bbb;
+}
+
+QRadioButton:focus {
+    outline: none;
+}
+
+QRadioButton::indicator:pressed {
+    background-color: #003f7f;
+    border-color: #003f7f;
+}
+</string>
+               </property>
                <property name="text">
                 <string>FUNCIONARIO</string>
                </property>
@@ -376,6 +923,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QLabel" name="txt_email">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Email</string>
             </property>
@@ -383,6 +933,27 @@
           </item>
           <item>
            <widget class="QLineEdit" name="input_email">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    selection-background-color: #007bff;
+    selection-color: white;
+}
+
+QLineEdit:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QLineEdit::placeholder {
+    color: #888;
+    font-style: italic;
+}</string>
+            </property>
             <property name="placeholderText">
              <string/>
             </property>
@@ -392,7 +963,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QFrame" name="layout_idade">
+        <widget class="QFrame" name="layout_data_nasc">
          <property name="frameShape">
           <enum>QFrame::Shape::StyledPanel</enum>
          </property>
@@ -401,14 +972,60 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
-           <widget class="QLabel" name="txt_idade">
+           <widget class="QLabel" name="txt_data_nasc">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
-             <string>Idade</string>
+             <string>Data de Nascimento</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="input_idade"/>
+           <widget class="QDateEdit" name="input_data_nasc">
+            <property name="styleSheet">
+             <string notr="true">QDateTimeEdit {
+	height: 45px;
+	font-size: 20px;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    selection-background-color: #007bff;
+    selection-color: white;
+}
+
+QDateTimeEdit:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QDateTimeEdit::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+QDateTimeEdit::drop-down {
+    background-color: #007bff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+}
+
+QDateTimeEdit::drop-down:hover {
+    background-color: #0056b3;
+}
+
+QDateTimeEdit::down-arrow:hover {
+    background-color: #0056b3;
+}
+
+QDateTimeEdit::down-arrow:pressed {
+    background-color: #003f7f;
+}
+</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -424,6 +1041,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_13">
           <item>
            <widget class="QLabel" name="txt_adc_foto">
+            <property name="styleSheet">
+             <string notr="true">font-size: 28px;</string>
+            </property>
             <property name="text">
              <string>Adicionar Foto</string>
             </property>
@@ -431,6 +1051,44 @@
           </item>
           <item>
            <widget class="QPushButton" name="btn_procurar_arquivo">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #333;
+    selection-background-color: #007bff;
+    selection-color: white;
+    transition: all 0.3s ease;
+}
+
+QPushButton:focus {
+    border: 2px solid #007bff;
+    background-color: #f0f8ff;
+}
+
+QPushButton:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+QPushButton:pressed {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+QPushButton:disabled {
+    background-color: #f0f0f0;
+    color: #bbb;
+    border-color: #ccc;
+}
+
+
+</string>
+            </property>
             <property name="text">
              <string>Porcurar Arquivo</string>
             </property>
@@ -442,6 +1100,19 @@
              <string/>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>
