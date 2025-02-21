@@ -31,6 +31,12 @@ class Ui_tela_formulario(object):
         self.centralwidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.btn_enviar_formulario = QPushButton(self.centralwidget)
+        self.btn_enviar_formulario.setObjectName(u"btn_enviar_formulario")
+        self.btn_enviar_formulario.setStyleSheet(u"background-color: rgb(244, 244, 244);")
+
+        self.gridLayout.addWidget(self.btn_enviar_formulario, 2, 0, 1, 1)
+
         self.txt__formulario = QLabel(self.centralwidget)
         self.txt__formulario.setObjectName(u"txt__formulario")
         self.txt__formulario.setStyleSheet(u"font-size: 26px;")
@@ -38,70 +44,12 @@ class Ui_tela_formulario(object):
 
         self.gridLayout.addWidget(self.txt__formulario, 0, 0, 1, 1)
 
-        self.btn_enviar_formulario = QPushButton(self.centralwidget)
-        self.btn_enviar_formulario.setObjectName(u"btn_enviar_formulario")
-        self.btn_enviar_formulario.setStyleSheet(u"background-color: rgb(244, 244, 244);")
-
-        self.gridLayout.addWidget(self.btn_enviar_formulario, 2, 0, 1, 1)
-
         self.layout = QFrame(self.centralwidget)
         self.layout.setObjectName(u"layout")
         self.layout.setFrameShape(QFrame.Shape.StyledPanel)
         self.layout.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout_2 = QGridLayout(self.layout)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.layout_email = QFrame(self.layout)
-        self.layout_email.setObjectName(u"layout_email")
-        self.layout_email.setFrameShape(QFrame.Shape.StyledPanel)
-        self.layout_email.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.layout_email)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.txt_email = QLabel(self.layout_email)
-        self.txt_email.setObjectName(u"txt_email")
-
-        self.verticalLayout_2.addWidget(self.txt_email)
-
-        self.input_email = QLineEdit(self.layout_email)
-        self.input_email.setObjectName(u"input_email")
-
-        self.verticalLayout_2.addWidget(self.input_email)
-
-
-        self.gridLayout_2.addWidget(self.layout_email, 0, 1, 1, 1)
-
-        self.layout_cargo = QFrame(self.layout)
-        self.layout_cargo.setObjectName(u"layout_cargo")
-        self.layout_cargo.setFrameShape(QFrame.Shape.StyledPanel)
-        self.layout_cargo.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.layout_cargo)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.txt_cargo = QLabel(self.layout_cargo)
-        self.txt_cargo.setObjectName(u"txt_cargo")
-
-        self.verticalLayout_5.addWidget(self.txt_cargo)
-
-        self.layout_cargo_opc = QFrame(self.layout_cargo)
-        self.layout_cargo_opc.setObjectName(u"layout_cargo_opc")
-        self.layout_cargo_opc.setFrameShape(QFrame.Shape.StyledPanel)
-        self.layout_cargo_opc.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout = QHBoxLayout(self.layout_cargo_opc)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.input_cargo_adm = QRadioButton(self.layout_cargo_opc)
-        self.input_cargo_adm.setObjectName(u"input_cargo_adm")
-
-        self.horizontalLayout.addWidget(self.input_cargo_adm)
-
-        self.input_cargo_func = QRadioButton(self.layout_cargo_opc)
-        self.input_cargo_func.setObjectName(u"input_cargo_func")
-
-        self.horizontalLayout.addWidget(self.input_cargo_func)
-
-
-        self.verticalLayout_5.addWidget(self.layout_cargo_opc)
-
-
-        self.gridLayout_2.addWidget(self.layout_cargo, 6, 0, 2, 1)
-
         self.layout_cpf = QFrame(self.layout)
         self.layout_cpf.setObjectName(u"layout_cpf")
         self.layout_cpf.setFrameShape(QFrame.Shape.StyledPanel)
@@ -121,6 +69,48 @@ class Ui_tela_formulario(object):
 
 
         self.gridLayout_2.addWidget(self.layout_cpf, 1, 0, 1, 1)
+
+        self.layout_data_contratacao = QFrame(self.layout)
+        self.layout_data_contratacao.setObjectName(u"layout_data_contratacao")
+        self.layout_data_contratacao.setFrameShape(QFrame.Shape.StyledPanel)
+        self.layout_data_contratacao.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_11 = QVBoxLayout(self.layout_data_contratacao)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.txt_data_contratacao = QLabel(self.layout_data_contratacao)
+        self.txt_data_contratacao.setObjectName(u"txt_data_contratacao")
+
+        self.verticalLayout_11.addWidget(self.txt_data_contratacao)
+
+        self.input_data_contratacao = QDateEdit(self.layout_data_contratacao)
+        self.input_data_contratacao.setObjectName(u"input_data_contratacao")
+
+        self.verticalLayout_11.addWidget(self.input_data_contratacao)
+
+
+        self.gridLayout_2.addWidget(self.layout_data_contratacao, 5, 0, 1, 1)
+
+        self.layout_periodo = QFrame(self.layout)
+        self.layout_periodo.setObjectName(u"layout_periodo")
+        self.layout_periodo.setFrameShape(QFrame.Shape.StyledPanel)
+        self.layout_periodo.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_10 = QVBoxLayout(self.layout_periodo)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.txt_periodo = QLabel(self.layout_periodo)
+        self.txt_periodo.setObjectName(u"txt_periodo")
+
+        self.verticalLayout_10.addWidget(self.txt_periodo)
+
+        self.input_periodo = QComboBox(self.layout_periodo)
+        self.input_periodo.addItem("")
+        self.input_periodo.addItem("")
+        self.input_periodo.addItem("")
+        self.input_periodo.addItem("")
+        self.input_periodo.setObjectName(u"input_periodo")
+
+        self.verticalLayout_10.addWidget(self.input_periodo)
+
+
+        self.gridLayout_2.addWidget(self.layout_periodo, 5, 1, 1, 1)
 
         self.layout_sexo = QFrame(self.layout)
         self.layout_sexo.setObjectName(u"layout_sexo")
@@ -163,6 +153,25 @@ class Ui_tela_formulario(object):
 
         self.gridLayout_2.addWidget(self.layout_sexo, 6, 1, 1, 1)
 
+        self.layout_obs = QFrame(self.layout)
+        self.layout_obs.setObjectName(u"layout_obs")
+        self.layout_obs.setFrameShape(QFrame.Shape.StyledPanel)
+        self.layout_obs.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_8 = QVBoxLayout(self.layout_obs)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.txt_obs = QLabel(self.layout_obs)
+        self.txt_obs.setObjectName(u"txt_obs")
+
+        self.verticalLayout_8.addWidget(self.txt_obs)
+
+        self.input_obs = QTextEdit(self.layout_obs)
+        self.input_obs.setObjectName(u"input_obs")
+
+        self.verticalLayout_8.addWidget(self.input_obs)
+
+
+        self.gridLayout_2.addWidget(self.layout_obs, 8, 0, 1, 1)
+
         self.layout_nome = QFrame(self.layout)
         self.layout_nome.setObjectName(u"layout_nome")
         self.layout_nome.setFrameShape(QFrame.Shape.StyledPanel)
@@ -181,25 +190,6 @@ class Ui_tela_formulario(object):
 
 
         self.gridLayout_2.addWidget(self.layout_nome, 0, 0, 1, 1)
-
-        self.layout_data_contratacao = QFrame(self.layout)
-        self.layout_data_contratacao.setObjectName(u"layout_data_contratacao")
-        self.layout_data_contratacao.setFrameShape(QFrame.Shape.StyledPanel)
-        self.layout_data_contratacao.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_11 = QVBoxLayout(self.layout_data_contratacao)
-        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-        self.txt_data_contratacao = QLabel(self.layout_data_contratacao)
-        self.txt_data_contratacao.setObjectName(u"txt_data_contratacao")
-
-        self.verticalLayout_11.addWidget(self.txt_data_contratacao)
-
-        self.input_data_contratacao = QDateEdit(self.layout_data_contratacao)
-        self.input_data_contratacao.setObjectName(u"input_data_contratacao")
-
-        self.verticalLayout_11.addWidget(self.input_data_contratacao)
-
-
-        self.gridLayout_2.addWidget(self.layout_data_contratacao, 5, 0, 1, 1)
 
         self.layout_senha = QFrame(self.layout)
         self.layout_senha.setObjectName(u"layout_senha")
@@ -221,48 +211,6 @@ class Ui_tela_formulario(object):
 
 
         self.gridLayout_2.addWidget(self.layout_senha, 1, 1, 1, 1)
-
-        self.layout_periodo = QFrame(self.layout)
-        self.layout_periodo.setObjectName(u"layout_periodo")
-        self.layout_periodo.setFrameShape(QFrame.Shape.StyledPanel)
-        self.layout_periodo.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_10 = QVBoxLayout(self.layout_periodo)
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.txt_periodo = QLabel(self.layout_periodo)
-        self.txt_periodo.setObjectName(u"txt_periodo")
-
-        self.verticalLayout_10.addWidget(self.txt_periodo)
-
-        self.input_periodo = QComboBox(self.layout_periodo)
-        self.input_periodo.addItem("")
-        self.input_periodo.addItem("")
-        self.input_periodo.addItem("")
-        self.input_periodo.addItem("")
-        self.input_periodo.setObjectName(u"input_periodo")
-
-        self.verticalLayout_10.addWidget(self.input_periodo)
-
-
-        self.gridLayout_2.addWidget(self.layout_periodo, 5, 1, 1, 1)
-
-        self.layout_data_nasc = QFrame(self.layout)
-        self.layout_data_nasc.setObjectName(u"layout_data_nasc")
-        self.layout_data_nasc.setFrameShape(QFrame.Shape.StyledPanel)
-        self.layout_data_nasc.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.layout_data_nasc)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.txt_data_nasc = QLabel(self.layout_data_nasc)
-        self.txt_data_nasc.setObjectName(u"txt_data_nasc")
-
-        self.verticalLayout_3.addWidget(self.txt_data_nasc)
-
-        self.input_data_nasc = QDateEdit(self.layout_data_nasc)
-        self.input_data_nasc.setObjectName(u"input_data_nasc")
-
-        self.verticalLayout_3.addWidget(self.input_data_nasc)
-
-
-        self.gridLayout_2.addWidget(self.layout_data_nasc, 8, 0, 1, 1)
 
         self.layout_salario = QFrame(self.layout)
         self.layout_salario.setObjectName(u"layout_salario")
@@ -286,6 +234,58 @@ class Ui_tela_formulario(object):
 
         self.gridLayout_2.addWidget(self.layout_salario, 2, 1, 1, 1)
 
+        self.layout_cargo = QFrame(self.layout)
+        self.layout_cargo.setObjectName(u"layout_cargo")
+        self.layout_cargo.setFrameShape(QFrame.Shape.StyledPanel)
+        self.layout_cargo.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.layout_cargo)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.txt_cargo = QLabel(self.layout_cargo)
+        self.txt_cargo.setObjectName(u"txt_cargo")
+
+        self.verticalLayout_5.addWidget(self.txt_cargo)
+
+        self.layout_cargo_opc = QFrame(self.layout_cargo)
+        self.layout_cargo_opc.setObjectName(u"layout_cargo_opc")
+        self.layout_cargo_opc.setFrameShape(QFrame.Shape.StyledPanel)
+        self.layout_cargo_opc.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout = QHBoxLayout(self.layout_cargo_opc)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.input_cargo_adm = QRadioButton(self.layout_cargo_opc)
+        self.input_cargo_adm.setObjectName(u"input_cargo_adm")
+
+        self.horizontalLayout.addWidget(self.input_cargo_adm)
+
+        self.input_cargo_func = QRadioButton(self.layout_cargo_opc)
+        self.input_cargo_func.setObjectName(u"input_cargo_func")
+
+        self.horizontalLayout.addWidget(self.input_cargo_func)
+
+
+        self.verticalLayout_5.addWidget(self.layout_cargo_opc)
+
+
+        self.gridLayout_2.addWidget(self.layout_cargo, 6, 0, 2, 1)
+
+        self.layout_email = QFrame(self.layout)
+        self.layout_email.setObjectName(u"layout_email")
+        self.layout_email.setFrameShape(QFrame.Shape.StyledPanel)
+        self.layout_email.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.layout_email)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.txt_email = QLabel(self.layout_email)
+        self.txt_email.setObjectName(u"txt_email")
+
+        self.verticalLayout_2.addWidget(self.txt_email)
+
+        self.input_email = QLineEdit(self.layout_email)
+        self.input_email.setObjectName(u"input_email")
+
+        self.verticalLayout_2.addWidget(self.input_email)
+
+
+        self.gridLayout_2.addWidget(self.layout_email, 0, 1, 1, 1)
+
         self.layout_idade = QFrame(self.layout)
         self.layout_idade.setObjectName(u"layout_idade")
         self.layout_idade.setFrameShape(QFrame.Shape.StyledPanel)
@@ -304,25 +304,6 @@ class Ui_tela_formulario(object):
 
 
         self.gridLayout_2.addWidget(self.layout_idade, 2, 0, 1, 1)
-
-        self.layout_obs = QFrame(self.layout)
-        self.layout_obs.setObjectName(u"layout_obs")
-        self.layout_obs.setFrameShape(QFrame.Shape.StyledPanel)
-        self.layout_obs.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_8 = QVBoxLayout(self.layout_obs)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.txt_obs = QLabel(self.layout_obs)
-        self.txt_obs.setObjectName(u"txt_obs")
-
-        self.verticalLayout_8.addWidget(self.txt_obs)
-
-        self.input_obs = QTextEdit(self.layout_obs)
-        self.input_obs.setObjectName(u"input_obs")
-
-        self.verticalLayout_8.addWidget(self.input_obs)
-
-
-        self.gridLayout_2.addWidget(self.layout_obs, 9, 0, 1, 1)
 
         self.layout_adc_foto = QFrame(self.layout)
         self.layout_adc_foto.setObjectName(u"layout_adc_foto")
@@ -360,34 +341,33 @@ class Ui_tela_formulario(object):
 
     def retranslateUi(self, tela_formulario):
         tela_formulario.setWindowTitle(QCoreApplication.translate("tela_formulario", u"MainWindow", None))
-        self.txt__formulario.setText(QCoreApplication.translate("tela_formulario", u"Formulario", None))
         self.btn_enviar_formulario.setText(QCoreApplication.translate("tela_formulario", u"Enviar Formulario", None))
-        self.txt_email.setText(QCoreApplication.translate("tela_formulario", u"Email", None))
-        self.input_email.setPlaceholderText("")
-        self.txt_cargo.setText(QCoreApplication.translate("tela_formulario", u"Cargo", None))
-        self.input_cargo_adm.setText(QCoreApplication.translate("tela_formulario", u"ADM", None))
-        self.input_cargo_func.setText(QCoreApplication.translate("tela_formulario", u"FUNCIONARIO", None))
+        self.txt__formulario.setText(QCoreApplication.translate("tela_formulario", u"Formulario", None))
         self.txt_cpf.setText(QCoreApplication.translate("tela_formulario", u"CPF", None))
         self.input_cpf.setInputMask(QCoreApplication.translate("tela_formulario", u"000.000.000-00", None))
         self.input_cpf.setText(QCoreApplication.translate("tela_formulario", u"..-", None))
-        self.txt_sexo.setText(QCoreApplication.translate("tela_formulario", u"Sexo", None))
-        self.sexo_opc_m.setText(QCoreApplication.translate("tela_formulario", u"Masculino", None))
-        self.sexo_opc_f.setText(QCoreApplication.translate("tela_formulario", u"Feminino", None))
-        self.sexo_opc_o.setText(QCoreApplication.translate("tela_formulario", u"Outro", None))
-        self.txt_nome.setText(QCoreApplication.translate("tela_formulario", u"Nome de Usuario", None))
-        self.input_nome.setPlaceholderText("")
         self.txt_data_contratacao.setText(QCoreApplication.translate("tela_formulario", u"Data da Contrata\u00e7\u00e3o", None))
-        self.txt_senha.setText(QCoreApplication.translate("tela_formulario", u"Senha", None))
         self.txt_periodo.setText(QCoreApplication.translate("tela_formulario", u"Periodo", None))
         self.input_periodo.setItemText(0, QCoreApplication.translate("tela_formulario", u"Matutino", None))
         self.input_periodo.setItemText(1, QCoreApplication.translate("tela_formulario", u"Vespertino", None))
         self.input_periodo.setItemText(2, QCoreApplication.translate("tela_formulario", u"Noturno", None))
         self.input_periodo.setItemText(3, QCoreApplication.translate("tela_formulario", u"Matutino e Vespertino", None))
 
-        self.txt_data_nasc.setText(QCoreApplication.translate("tela_formulario", u"Data de Nascimento", None))
-        self.txt_salario.setText(QCoreApplication.translate("tela_formulario", u"Salario", None))
-        self.txt_idade.setText(QCoreApplication.translate("tela_formulario", u"Idade", None))
+        self.txt_sexo.setText(QCoreApplication.translate("tela_formulario", u"Sexo", None))
+        self.sexo_opc_m.setText(QCoreApplication.translate("tela_formulario", u"Masculino", None))
+        self.sexo_opc_f.setText(QCoreApplication.translate("tela_formulario", u"Feminino", None))
+        self.sexo_opc_o.setText(QCoreApplication.translate("tela_formulario", u"Outro", None))
         self.txt_obs.setText(QCoreApplication.translate("tela_formulario", u"Observa\u00e7\u00e3o", None))
+        self.txt_nome.setText(QCoreApplication.translate("tela_formulario", u"Nome de Usuario", None))
+        self.input_nome.setPlaceholderText("")
+        self.txt_senha.setText(QCoreApplication.translate("tela_formulario", u"Senha", None))
+        self.txt_salario.setText(QCoreApplication.translate("tela_formulario", u"Salario", None))
+        self.txt_cargo.setText(QCoreApplication.translate("tela_formulario", u"Cargo", None))
+        self.input_cargo_adm.setText(QCoreApplication.translate("tela_formulario", u"ADM", None))
+        self.input_cargo_func.setText(QCoreApplication.translate("tela_formulario", u"FUNCIONARIO", None))
+        self.txt_email.setText(QCoreApplication.translate("tela_formulario", u"Email", None))
+        self.input_email.setPlaceholderText("")
+        self.txt_idade.setText(QCoreApplication.translate("tela_formulario", u"Idade", None))
         self.txt_adc_foto.setText(QCoreApplication.translate("tela_formulario", u"Adicionar Foto", None))
         self.btn_procurar_arquivo.setText(QCoreApplication.translate("tela_formulario", u"Porcurar Arquivo", None))
         self.layout_img.setText("")

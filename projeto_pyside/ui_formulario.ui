@@ -18,6 +18,16 @@
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="0">
+     <widget class="QPushButton" name="btn_enviar_formulario">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(244, 244, 244);</string>
+      </property>
+      <property name="text">
+       <string>Enviar Formulario</string>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="txt__formulario">
       <property name="styleSheet">
@@ -31,16 +41,6 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QPushButton" name="btn_enviar_formulario">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(244, 244, 244);</string>
-      </property>
-      <property name="text">
-       <string>Enviar Formulario</string>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QFrame" name="layout">
       <property name="frameShape">
@@ -50,77 +50,6 @@
        <enum>QFrame::Shadow::Raised</enum>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="1">
-        <widget class="QFrame" name="layout_email">
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QLabel" name="txt_email">
-            <property name="text">
-             <string>Email</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="input_email">
-            <property name="placeholderText">
-             <string/>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="6" column="0" rowspan="2">
-        <widget class="QFrame" name="layout_cargo">
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <widget class="QLabel" name="txt_cargo">
-            <property name="text">
-             <string>Cargo</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="layout_cargo_opc">
-            <property name="frameShape">
-             <enum>QFrame::Shape::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Shadow::Raised</enum>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout">
-             <item>
-              <widget class="QRadioButton" name="input_cargo_adm">
-               <property name="text">
-                <string>ADM</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QRadioButton" name="input_cargo_func">
-               <property name="text">
-                <string>FUNCIONARIO</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
        <item row="1" column="0">
         <widget class="QFrame" name="layout_cpf">
          <property name="frameShape">
@@ -148,6 +77,71 @@
             <property name="maxLength">
              <number>14</number>
             </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QFrame" name="layout_data_contratacao">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <item>
+           <widget class="QLabel" name="txt_data_contratacao">
+            <property name="text">
+             <string>Data da Contratação</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="input_data_contratacao"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QFrame" name="layout_periodo">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
+          <item>
+           <widget class="QLabel" name="txt_periodo">
+            <property name="text">
+             <string>Periodo</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="input_periodo">
+            <item>
+             <property name="text">
+              <string>Matutino</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Vespertino</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Noturno</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Matutino e Vespertino</string>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>
@@ -214,6 +208,28 @@
          </layout>
         </widget>
        </item>
+       <item row="8" column="0">
+        <widget class="QFrame" name="layout_obs">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QLabel" name="txt_obs">
+            <property name="text">
+             <string>Observação</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="input_obs"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QFrame" name="layout_nome">
          <property name="frameShape">
@@ -236,28 +252,6 @@
              <string/>
             </property>
            </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QFrame" name="layout_data_contratacao">
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_11">
-          <item>
-           <widget class="QLabel" name="txt_data_contratacao">
-            <property name="text">
-             <string>Data da Contratação</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QDateEdit" name="input_data_contratacao"/>
           </item>
          </layout>
         </widget>
@@ -294,71 +288,6 @@
          </layout>
         </widget>
        </item>
-       <item row="5" column="1">
-        <widget class="QFrame" name="layout_periodo">
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_10">
-          <item>
-           <widget class="QLabel" name="txt_periodo">
-            <property name="text">
-             <string>Periodo</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="input_periodo">
-            <item>
-             <property name="text">
-              <string>Matutino</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Vespertino</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Noturno</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Matutino e Vespertino</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QFrame" name="layout_data_nasc">
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QLabel" name="txt_data_nasc">
-            <property name="text">
-             <string>Data de Nascimento</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QDateEdit" name="input_data_nasc"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
        <item row="2" column="1">
         <widget class="QFrame" name="layout_salario">
          <property name="frameShape">
@@ -391,6 +320,77 @@
          </layout>
         </widget>
        </item>
+       <item row="6" column="0" rowspan="2">
+        <widget class="QFrame" name="layout_cargo">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QLabel" name="txt_cargo">
+            <property name="text">
+             <string>Cargo</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="layout_cargo_opc">
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QRadioButton" name="input_cargo_adm">
+               <property name="text">
+                <string>ADM</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="input_cargo_func">
+               <property name="text">
+                <string>FUNCIONARIO</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QFrame" name="layout_email">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="txt_email">
+            <property name="text">
+             <string>Email</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="input_email">
+            <property name="placeholderText">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item row="2" column="0">
         <widget class="QFrame" name="layout_idade">
          <property name="frameShape">
@@ -409,28 +409,6 @@
           </item>
           <item>
            <widget class="QSpinBox" name="input_idade"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="9" column="0">
-        <widget class="QFrame" name="layout_obs">
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
-          <item>
-           <widget class="QLabel" name="txt_obs">
-            <property name="text">
-             <string>Observação</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QTextEdit" name="input_obs"/>
           </item>
          </layout>
         </widget>

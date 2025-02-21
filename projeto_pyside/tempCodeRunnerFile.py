@@ -78,19 +78,23 @@ class MainWindow(QMainWindow):
 
             # Exibir a imagem na interface
             pixmap = QPixmap(self.new_file_path)
-            self.tela_formulario.layout_img.setPixmap(pixmap)
+            self.tela_login.icon_login.setPixmap(pixmap)
             self.tela_formulario.layout_img.setScaledContents(True)
             self.tela_formulario.layout_img.setPixmap(pixmap)
 
     def valida_cpf(self, cpf):
+        # Remove caracteres especiais
         cpf = ''.join(filter(str.isdigit, cpf))
 
+        # Verifica se o CPF tem 11 dígitos
         if len(cpf) != 11:
             return False
 
+        # Verifica se o CPF é uma sequência de números iguais (ex: 111.111.111-11)
         if cpf == cpf[0] * 11:
             return False
 
+        # Cálculo do primeiro dígito verificador
         soma1 = sum(int(cpf[i]) * (10 - i) for i in range(9))
         digito1 = (soma1 * 10) % 11
         if digito1 == 10 or digito1 == 11:
@@ -98,6 +102,7 @@ class MainWindow(QMainWindow):
         if digito1 != int(cpf[9]):
             return False
 
+        # Cálculo do segundo dígito verificador
         soma2 = sum(int(cpf[i]) * (11 - i) for i in range(10))
         digito2 = (soma2 * 10) % 11
         if digito2 == 10 or digito2 == 11:
@@ -106,97 +111,107 @@ class MainWindow(QMainWindow):
             return False
 
         return True
-    
     def enviar_form(self):
         cursor = self.conexao.cursor()
-
-        # Verificar se o nome de usuário já existe
         comando = "SELECT nome_usu FROM usuarios WHERE nome_usu = %s"
         cursor.execute(comando, (self.tela_formulario.input_nome.text(),))
-        if cursor.fetchone():
-            QMessageBox.warning(self, "Erro", "Usuário já cadastrado!")
-            return
+        resultado = cursor.fetchone()
+        if resultado:
+            QMessageBox.warning(self, "Erro", "Usuário ja sendo usado!")
+        else:
+            nome_usu = self.tela_formulario.input_nome.text()
+
+        senha = self.tela_formulario.input_senha.text()
+
+        cpf_input = self.tela_formulario.input_cpf.text()
 
         # Verificar se o CPF é válido
-        cpf_input = self.tela_formulario.input_cpf.text()
         if not self.valida_cpf(cpf_input):
             QMessageBox.warning(self, "Erro", "Digite um CPF válido!")
             return
-
-        # Verificar se o CPF já existe
         comando = "SELECT cpf FROM usuarios WHERE cpf = %s"
-        cursor.execute(comando, (cpf_input,))
-        if cursor.fetchone():
-            QMessageBox.warning(self, "Erro", "CPF já cadastrado!")
-            return
+        cursor.execute(comando, (self.tela_formulario.input_cpf.text(),))
+        resultado = cursor.fetchone()
+        if resultado:
+            QMessageBox.warning(self, "Erro", "CPF já Cadastrado!")
+        else:
+            cpf = self.tela_formulario.input_cpf.text()
 
-        # Verificar se o e-mail é válido
-        email = self.tela_formulario.input_email.text()
-        if not (email.endswith("@gmail.com") or email.endswith("@hotmail.com") or email.endswith("@icloud.com")):
+        comando = "SELECT email FROM usuarios WHERE email = %s"
+        cursor.execute(comando, (self.tela_formulario.input_email.text(),))
+        resultado = cursor.fetchone()
+        if resultado:
+            QMessageBox.warning(self, "Erro", "Email já Cadastrado!")
+        else:
+            email = self.tela_formulario.input_email.text()
+        if not (email.endswith("@gmail.com") or email.endswith("@hotmail.com") or email.endswith("@icloud.com")):            
             QMessageBox.warning(self, "Erro", "Email inválido!")
-            return
-
-        # Verificar se o usuário é maior de 16 anos
         idade = self.tela_formulario.input_idade.text()
         if int(idade) <= 15:
-            QMessageBox.warning(self, "Erro", "Precisa ser maior de 16 anos!")
-            return
+            QMessageBox.warning(self, "Erro", "Precisa ser maior de 16 anos")
 
-        # Verificar se o cargo foi selecionado
-        if not (self.tela_formulario.input_cargo_adm.isChecked() or self.tela_formulario.input_cargo_func.isChecked()):
-            QMessageBox.warning(self, "Erro", "Selecione um cargo!")
-            return
+        foto = self.new_file_path
 
-        # Verificar se o sexo foi selecionado
+        if self.tela_formulario.input_cargo_adm.isChecked():
+            opc_cargo = 1
+        elif self.tela_formulario.input_cargo_func.isChecked():
+            opc_cargo = 2
+        else:
+            QMessageBox.warning(self, "Erro", "Cargo Invalido!")
+
         opc_sexo = None
+
         if self.tela_formulario.sexo_opc_m.isChecked():
             opc_sexo = 1
         elif self.tela_formulario.sexo_opc_f.isChecked():
             opc_sexo = 2
         elif self.tela_formulario.sexo_opc_o.isChecked():
             opc_sexo = 3
+            QMessageBox.warning(self, "Erro", "Sexo Invalido!")
         if opc_sexo is None:
-            QMessageBox.warning(self, "Erro", "Selecione um sexo válido!")
+            QMessageBox.warning(self, "Erro", "Selecione um sexo válido.")
             return
 
-        # Verificar se o período foi selecionado
-        if self.tela_formulario.input_periodo.currentIndex() == -1:
-            QMessageBox.warning(self, "Erro", "Selecione um período!")
-            return
-        periodo = self.tela_formulario.input_periodo.currentIndex() + 1
-
-        # Verificar se a observação contém caracteres inválidos
-        obs = self.tela_formulario.input_obs.toPlainText()
-        if any(c in '☺☻♥♦♣♠•◘○' for c in obs):
-            QMessageBox.warning(self, "Erro", "Observação inválida!")
-            return
-
-        # Recuperar caminho da foto
-        foto = self.new_file_path
-
-        # Definir cargo
-        opc_cargo = 1 if self.tela_formulario.input_cargo_adm.isChecked() else 2
-
-        # Recuperar data de contratação e salário
         data_contratacao = self.tela_formulario.input_data_contratacao.date().toString("yyyy-MM-dd")
+
         salario = self.tela_formulario.input_salario.value()
 
-        # Inserir dados no banco
+        # Verificar se nenhum item foi selecionado
+        if self.tela_formulario.input_periodo.currentIndex() == -1:
+            QMessageBox.warning(self, "Erro", "Selecione um período!")
+        else:
+            if self.tela_formulario.input_periodo.currentIndex() == 0:
+                periodo = 1
+            elif self.tela_formulario.input_periodo.currentIndex() == 1:
+                periodo = 2
+            elif self.tela_formulario.input_periodo.currentIndex() == 2:
+                periodo = 3
+            elif self.tela_formulario.input_periodo.currentIndex() == 3:
+                periodo = 4
+            else:
+                QMessageBox.warning(self, "Erro", "Período inválido!")
+
+        obs = self.tela_formulario.input_obs.toPlainText()
+        if obs in '☺☻♥♦♣♠•◘○':
+            QMessageBox.warning(self, "Erro", "Obs inválida!")
+        img_caminho = foto
+
+        cursor = self.conexao.cursor()
+
         comando = """
             INSERT INTO usuarios 
             (nome_usu, email, senha, cpf, idade, salario, data_contratacao, periodo, cargo, sexo, obs, img_local)
-            VALUES (%s, %s,SHA2(%s, 256), %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, SHA2(%s, 256), %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
+
         dados = (
-            self.tela_formulario.input_nome.text(), email, self.tela_formulario.input_senha.text(), cpf_input, idade, salario, 
-            data_contratacao, periodo, opc_cargo, opc_sexo, obs, foto
+            nome_usu, email, senha, cpf, idade, salario, 
+            data_contratacao, periodo, opc_cargo, opc_sexo, obs, img_caminho
         )
 
         cursor.execute(comando, dados)
         self.conexao.commit()
         cursor.close()
-
-        QMessageBox.information(self, "Sucesso", "Cadastro realizado com sucesso!")
     
 
 
