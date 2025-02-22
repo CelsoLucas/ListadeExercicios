@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PDV</class>
+ <widget class="QMainWindow" name="PDV">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(219, 219, 219);</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="layout">
+      <property name="styleSheet">
+       <string notr="true">background-color: #DBDBDB;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QFrame" name="layout_menu">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QFrame" name="layout_logo">
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>170</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+              <widget class="QLabel" name="txt_logo_aqui">
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>200</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font-size: 26px;
+</string>
+               </property>
+               <property name="text">
+                <string>Logo Aqui</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="espaco_menu">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>1200</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QFrame" name="layout_nome">
+            <property name="maximumSize">
+             <size>
+              <width>180</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="txt_nome">
+               <property name="styleSheet">
+                <string notr="true">font-size: 22px;</string>
+               </property>
+               <property name="text">
+                <string>Olá, Funcionario</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="layout_sair">
+            <property name="maximumSize">
+             <size>
+              <width>160</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <widget class="QPushButton" name="btn_sair">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>160</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font-size: 20px;
+background: #FFFFFF;
+border-radius: 10px;
+</string>
+               </property>
+               <property name="text">
+                <string>Sair</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="layout_tela_principal">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QFrame" name="layout_botoes_menu">
+            <property name="maximumSize">
+             <size>
+              <width>280</width>
+              <height>1677</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-family: 24px;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QPushButton" name="btn_tela_principal">
+               <property name="maximumSize">
+                <size>
+                 <width>325</width>
+                 <height>75</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #FFFFFF;
+box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+border-radius: 10px;
+font-size: 22px;
+</string>
+               </property>
+               <property name="text">
+                <string> Tela Principal</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_pdv">
+               <property name="maximumSize">
+                <size>
+                 <width>315</width>
+                 <height>75</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #FFFFFF;
+border-radius: 10px;
+font-size: 22px;
+</string>
+               </property>
+               <property name="text">
+                <string>PDV</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_estoque">
+               <property name="maximumSize">
+                <size>
+                 <width>315</width>
+                 <height>75</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #FFFFFF;
+border-radius: 10px;
+font-size: 22px;
+</string>
+               </property>
+               <property name="text">
+                <string>ESTOQUE</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_clientes">
+               <property name="maximumSize">
+                <size>
+                 <width>315</width>
+                 <height>75</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #FFFFFF;
+border-radius: 10px;
+font-size: 22px;
+</string>
+               </property>
+               <property name="text">
+                <string>CLIENTES</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_relatorios">
+               <property name="maximumSize">
+                <size>
+                 <width>315</width>
+                 <height>75</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #FFFFFF;
+border-radius: 10px;
+font-size: 22px;
+</string>
+               </property>
+               <property name="text">
+                <string>RELATORIOS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_configuracoes">
+               <property name="maximumSize">
+                <size>
+                 <width>315</width>
+                 <height>75</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #FFFFFF;
+border-radius: 10px;
+font-size: 22px;
+</string>
+               </property>
+               <property name="text">
+                <string>CONFIGURAÇÕES</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="espaco_botoes_info">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QFrame" name="layout_info_principal">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <widget class="QFrame" name="layout_pesquisar_produto">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout">
+                <item row="0" column="2">
+                 <widget class="QPushButton" name="btn_procurar_produto">
+                  <property name="text">
+                   <string>Procurar Produto</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+                 <widget class="QLineEdit" name="input_pesquisar_produto">
+                  <property name="maximumSize">
+                   <size>
+                    <width>300</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font-size: 22px;</string>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Procurar Produto</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Policy::Minimum</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>300</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="layout_info_principal_1">
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_8">
+                <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop">
+                 <widget class="QFrame" name="layout_resultado_pesquisa">
+                  <property name="styleSheet">
+                   <string notr="true">font-size:16px;
+</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_4">
+                   <item alignment="Qt::AlignmentFlag::AlignLeft">
+                    <widget class="QLabel" name="txt_produto_resultado_pesquisa">
+                     <property name="text">
+                      <string>Maça  R$1,00 un.</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>80</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="btn_menos">
+                     <property name="text">
+                      <string>-</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="txt_quant_produto">
+                     <property name="text">
+                      <string>01</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="btn_mais">
+                     <property name="text">
+                      <string>+</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item alignment="Qt::AlignmentFlag::AlignRight">
+                 <widget class="QPushButton" name="btn_adc_carrinho">
+                  <property name="minimumSize">
+                   <size>
+                    <width>315</width>
+                    <height>47</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>315</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font-size:22px;
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Adicionar ao Carrinho</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
