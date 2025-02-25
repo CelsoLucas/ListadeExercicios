@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>853</width>
-    <height>704</height>
+    <width>1178</width>
+    <height>819</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -110,7 +116,7 @@ QLineEdit::placeholder {
            <number>0</number>
           </property>
           <item>
-           <widget class="QLabel" name="txt_logo">
+           <widget class="QLabel" name="img_logo">
             <property name="text">
              <string>TextLabel</string>
             </property>
@@ -357,7 +363,7 @@ QLineEdit::placeholder {
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="telaprincipal">
              <property name="styleSheet">
@@ -645,13 +651,43 @@ background-color: rgb(255, 255, 255);</string>
               <item>
                <widget class="QStackedWidget" name="stackedWidget_2">
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="tela_pdv_1">
                  <layout class="QVBoxLayout" name="verticalLayout_15">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
                   <item>
                    <widget class="QWidget" name="tela_pdv_1_info_principal" native="true">
                     <layout class="QVBoxLayout" name="verticalLayout_16">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
                      <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop">
                       <widget class="QFrame" name="layout_pesquisar_produto">
                        <property name="minimumSize">
@@ -696,7 +732,7 @@ background-color: rgb(255, 255, 255);</string>
                          <widget class="QLineEdit" name="input_pesquisar_produto">
                           <property name="minimumSize">
                            <size>
-                            <width>0</width>
+                            <width>400</width>
                             <height>0</height>
                            </size>
                           </property>
@@ -707,8 +743,7 @@ background-color: rgb(255, 255, 255);</string>
                            </size>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">font-size: 22px;
-border-radius: 0px;</string>
+                           <string notr="true"/>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -802,7 +837,7 @@ border-radius: 0px;</string>
                          <widget class="QLineEdit" name="input_pesquisar_produto_2">
                           <property name="minimumSize">
                            <size>
-                            <width>0</width>
+                            <width>400</width>
                             <height>0</height>
                            </size>
                           </property>
@@ -813,8 +848,7 @@ border-radius: 0px;</string>
                            </size>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">font-size: 22px;
-border-radius: 0px;</string>
+                           <string notr="true"/>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1016,7 +1050,7 @@ border-radius: 0px;</string>
                             <widget class="QLineEdit" name="input_pesquisar_produto_3">
                              <property name="minimumSize">
                               <size>
-                               <width>0</width>
+                               <width>400</width>
                                <height>0</height>
                               </size>
                              </property>
@@ -1027,8 +1061,7 @@ border-radius: 0px;</string>
                               </size>
                              </property>
                              <property name="styleSheet">
-                              <string notr="true">font-size: 22px;
-border-radius: 0px;</string>
+                              <string notr="true"/>
                              </property>
                              <property name="alignment">
                               <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1831,7 +1864,10 @@ border-radius: 20px;</string>
                  <layout class="QVBoxLayout" name="verticalLayout_33">
                   <item>
                    <widget class="QStackedWidget" name="stackedWidget_4">
-                    <widget class="QWidget" name="page">
+                    <property name="currentIndex">
+                     <number>1</number>
+                    </property>
+                    <widget class="QWidget" name="config_usuarios">
                      <layout class="QVBoxLayout" name="verticalLayout_35">
                       <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
                        <widget class="QTreeWidget" name="treeWidget_2">
@@ -1840,6 +1876,9 @@ border-radius: 20px;</string>
                           <width>850</width>
                           <height>600</height>
                          </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true"/>
                         </property>
                         <column>
                          <property name="text">
@@ -1968,7 +2007,7 @@ border-radius: 20px;</string>
                        </widget>
                       </item>
                       <item alignment="Qt::AlignmentFlag::AlignHCenter">
-                       <widget class="QPushButton" name="pushButton">
+                       <widget class="QPushButton" name="btn_adc_user">
                         <property name="text">
                          <string>Adcionar Usuario</string>
                         </property>
@@ -1976,10 +2015,10 @@ border-radius: 20px;</string>
                       </item>
                      </layout>
                     </widget>
-                    <widget class="QWidget" name="page_2">
+                    <widget class="QWidget" name="config_usuarios_2">
                      <layout class="QVBoxLayout" name="verticalLayout_36">
                       <item>
-                       <widget class="QFrame" name="frame_2">
+                       <widget class="QFrame" name="layout_adc_usuario">
                         <property name="frameShape">
                          <enum>QFrame::Shape::StyledPanel</enum>
                         </property>
@@ -1988,14 +2027,14 @@ border-radius: 20px;</string>
                         </property>
                         <layout class="QGridLayout" name="gridLayout_3">
                          <item row="7" column="0">
-                          <widget class="QPushButton" name="pushButton_3">
+                          <widget class="QPushButton" name="btn_adc_usuario">
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>Criar Usuario</string>
                            </property>
                           </widget>
                          </item>
                          <item row="2" column="0">
-                          <widget class="QLineEdit" name="lineEdit_3">
+                          <widget class="QLineEdit" name="input_senha_adc_usuario">
                            <property name="maximumSize">
                             <size>
                              <width>400</width>
@@ -2017,14 +2056,14 @@ border-radius: 20px;</string>
                           </widget>
                          </item>
                          <item row="6" column="0">
-                          <widget class="QLabel" name="label_5">
+                          <widget class="QLabel" name="label_img_adc_usuario">
                            <property name="text">
                             <string/>
                            </property>
                           </widget>
                          </item>
                          <item row="0" column="0">
-                          <widget class="QLineEdit" name="lineEdit">
+                          <widget class="QLineEdit" name="input_nome_adc_usuario">
                            <property name="maximumSize">
                             <size>
                              <width>400</width>
@@ -2050,7 +2089,7 @@ border-radius: 20px;</string>
                           </widget>
                          </item>
                          <item row="1" column="0">
-                          <widget class="QLineEdit" name="lineEdit_2">
+                          <widget class="QLineEdit" name="input_email_adc_usuario">
                            <property name="maximumSize">
                             <size>
                              <width>400</width>
@@ -2069,7 +2108,7 @@ border-radius: 20px;</string>
                           </widget>
                          </item>
                          <item row="3" column="0">
-                          <widget class="QLineEdit" name="lineEdit_4">
+                          <widget class="QLineEdit" name="input_cpf_adc_usuario">
                            <property name="maximumSize">
                             <size>
                              <width>400</width>
@@ -2088,14 +2127,14 @@ border-radius: 20px;</string>
                           </widget>
                          </item>
                          <item row="5" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-                          <widget class="QPushButton" name="pushButton_2">
+                          <widget class="QPushButton" name="btn_procurar_ft_adc_usuario">
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>Procurar Foto</string>
                            </property>
                           </widget>
                          </item>
                          <item row="4" column="0">
-                          <widget class="QLineEdit" name="lineEdit_5">
+                          <widget class="QLineEdit" name="input_telefone_adc_usuario">
                            <property name="maximumSize">
                             <size>
                              <width>400</width>
@@ -2131,30 +2170,95 @@ border-radius: 20px;</string>
                  </attribute>
                  <layout class="QVBoxLayout" name="verticalLayout">
                   <item>
-                   <widget class="QFrame" name="frame_4">
-                    <property name="frameShape">
-                     <enum>QFrame::Shape::StyledPanel</enum>
+                   <widget class="QStackedWidget" name="stackedWidget_5">
+                    <property name="currentIndex">
+                     <number>0</number>
                     </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Shadow::Raised</enum>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="tela_config_3">
-                 <attribute name="title">
-                  <string>Tab 2</string>
-                 </attribute>
-                 <layout class="QVBoxLayout" name="verticalLayout_34">
-                  <item>
-                   <widget class="QFrame" name="frame_5">
-                    <property name="frameShape">
-                     <enum>QFrame::Shape::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Shadow::Raised</enum>
-                    </property>
+                    <widget class="QWidget" name="page">
+                     <layout class="QVBoxLayout" name="verticalLayout_37">
+                      <item>
+                       <widget class="QWidget" name="widget_4" native="true">
+                        <layout class="QVBoxLayout" name="verticalLayout_38">
+                         <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+                          <widget class="QTreeWidget" name="tabela_categoria">
+                           <column>
+                            <property name="text">
+                             <string>ID</string>
+                            </property>
+                            <property name="textAlignment">
+                             <set>AlignCenter</set>
+                            </property>
+                           </column>
+                           <column>
+                            <property name="text">
+                             <string>Categorias</string>
+                            </property>
+                            <property name="textAlignment">
+                             <set>AlignCenter</set>
+                            </property>
+                           </column>
+                          </widget>
+                         </item>
+                         <item alignment="Qt::AlignmentFlag::AlignHCenter">
+                          <widget class="QPushButton" name="btn_adc_categoria">
+                           <property name="text">
+                            <string>Adicionar Categoria</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page_2">
+                     <layout class="QVBoxLayout" name="verticalLayout_39">
+                      <item>
+                       <widget class="QFrame" name="layout_adc_categoria">
+                        <property name="frameShape">
+                         <enum>QFrame::Shape::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Shadow::Raised</enum>
+                        </property>
+                        <layout class="QGridLayout" name="gridLayout_5">
+                         <item row="0" column="0">
+                          <widget class="QLineEdit" name="input_nome_adc_categoria">
+                           <property name="maximumSize">
+                            <size>
+                             <width>400</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true"/>
+                           </property>
+                           <property name="inputMask">
+                            <string/>
+                           </property>
+                           <property name="text">
+                            <string>CATEGORIA</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignmentFlag::AlignCenter</set>
+                           </property>
+                           <property name="placeholderText">
+                            <string>Telefone</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="0">
+                          <widget class="QPushButton" name="btn_adc_categoria_2">
+                           <property name="text">
+                            <string>Criar Categoria</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
                    </widget>
                   </item>
                  </layout>
