@@ -20,7 +20,62 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #DBDBDB;</string>
+   <string notr="true">*{
+	background-color: rgb(0, 90, 255);
+	font-family: &quot;poppins&quot;;
+}
+#layout, #layout_user, #layout_img_login, #layout_senha, #txt_login, #icon_login{
+	background-color: rgb(240, 248, 255);
+	border-radius: 20px;
+}
+
+QLineEdit { 
+  border: none; /* Remove bordas padrão */
+  border-bottom: 2px solid #3C3744; /* Linha inferior com a cor #3C3744 */
+  padding-bottom: 10px; /* Espaçamento embaixo do texto */
+  color: #3C3744; /* Cor do texto */
+  background: transparent; /* Fundo transparente */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: border-color 0.3s, color 0.3s; /* Transição suave para a cor da borda e do texto */
+}
+
+QLineEdit:hover {
+  border-bottom: 2px solid #3C3744; /* Cor da linha inferior quando passar o mouse */
+  color: #3C3744; /* Cor do texto quando passar o mouse */
+}
+
+QLineEdit:focus {
+  border-bottom: 2px solid #3C3744; /* Linha inferior visível ao focar no campo */
+  color: #3C3744; /* Cor do texto ao focar */
+}
+
+/* Estilo do placeholder */
+QLineEdit::placeholder {
+  color: #3C3744 !important; /* Força a cor do placeholder */
+}
+
+QPushButton {
+  background-color:  rgb(0, 90, 255);
+  color: #F0F8FF; /* Cor do texto */
+  border: 2px solid #F0F8FF; /* Borda da cor F0F8FF */
+  border-radius: 20px; /* Bordas arredondadas */
+  padding: 12px 24px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor de mão */
+  transition: background-color 0.3s, color 0.3s; /* Transição suave */
+}
+
+QPushButton:hover {
+  background-color: #F0F8FF; /* Cor de fundo ao passar o mouse */
+  color: #3C3744; /* Cor do texto ao passar o mouse */
+  border: 2px solid rgb(0, 90, 255);
+}
+
+QPushButton:pressed {
+  background-color: #F0F8FF; /* Cor de fundo ao pressionar */
+  color: #3C3744; /* Cor do texto ao pressionar */
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -33,9 +88,7 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #FFFFFF;
-border-radius: 19px;
-</string>
+       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::Shape::StyledPanel</enum>
@@ -98,10 +151,10 @@ font-weight: bold;</string>
           <item>
            <widget class="QLineEdit" name="input_user">
             <property name="styleSheet">
-             <string notr="true">font-size: 20px;
-border: none;
-border-bottom: 1px solid black;
-background: transparent;</string>
+             <string notr="true"/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="placeholderText">
              <string>Usuario</string>
@@ -123,13 +176,13 @@ background: transparent;</string>
           <item>
            <widget class="QLineEdit" name="input_senha">
             <property name="styleSheet">
-             <string notr="true">font-size: 20px;
-border: none;
-border-bottom: 1px solid black;
-background: transparent;</string>
+             <string notr="true"/>
             </property>
             <property name="echoMode">
              <enum>QLineEdit::EchoMode::Password</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="placeholderText">
              <string>Senha</string>
@@ -157,13 +210,7 @@ background: transparent;</string>
           <cursorShape>ArrowCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">width: 100px;
-height: 30px;
-font-size: 20px;
-background: #D9D9D9;
-border-radius: 11px;
-font-weight: medium;
-</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Login</string>

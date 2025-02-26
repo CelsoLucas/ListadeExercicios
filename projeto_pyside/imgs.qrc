@@ -1,7 +1,18 @@
 <RCC>
   <qresource prefix="icons">
-    <file>2.png</file>
-    <file>1.png</file>
-    <file>lupa_icon.png</file>
+    <file>exit.png</file>
+    <file>dollar.png</file>
+    <file>settings (1).png</file>
+    <file>home.png</file>
+    <file>box-open.png</file>
+    <file>analytics.png</file>
+    <file>minus-circle.png</file>
+    <file>mode-portrait.png</file>
+    <file>user-add.png</file>
+    <file>pencil.png</file>
+    <file>add.png</file>
+    <file>settings.png</file>
+    <file>search.png</file>
+    <file>shopping-cart (1).png</file>
   </qresource>
 </RCC>
